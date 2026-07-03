@@ -25,6 +25,18 @@ button{font-family:inherit}
 /* Keyboard focus ring — visible for keyboard users, suppressed on mouse click */
 :focus{outline:none}
 :focus-visible{outline:2px solid #E31920;outline-offset:3px;border-radius:6px}
+/* --- Slide transitions: a single rehearsed push, direction-aware --- */
+.dc-enter-next{animation:slideInNext .5s cubic-bezier(.16,1,.3,1) both}
+.dc-enter-prev{animation:slideInPrev .5s cubic-bezier(.16,1,.3,1) both}
+@keyframes slideInNext{from{opacity:0;transform:translateX(38px)}to{opacity:1;transform:translateX(0)}}
+@keyframes slideInPrev{from{opacity:0;transform:translateX(-38px)}to{opacity:1;transform:translateX(0)}}
+@keyframes slideOutNext{from{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(-38px)}}
+@keyframes slideOutPrev{from{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(38px)}}
+/* Exiting ghost: freeze its inner entrances so it reads as a settled slide leaving */
+.dc-ghost *{animation:none!important}
+/* Popup exit */
+@keyframes detailOut{from{opacity:1;transform:translate(-50%,-50%) scale(1)}to{opacity:0;transform:translate(-50%,-50%) scale(.965)}}
+@keyframes backdropOut{from{opacity:1}to{opacity:0}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
 </style>
 </head>
@@ -441,16 +453,36 @@ const live = sectionEls.slice();
 
 function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
-function mountSection(i){
+function mountSection(i, dir){
   // Re-clone from pristine so CSS entrance animations replay on (re)mount,
   // exactly like the prototype remounts a section when its sc-if turns true.
   const fresh = pristine[i].cloneNode(true);
   fresh.classList.remove('dc-hidden');
+  // Direction-aware entrance: the slide pushes in from the travel direction,
+  // then its own staggered inner reveals play on top.
+  if(dir===1) fresh.classList.add('dc-enter-next');
+  else if(dir===-1) fresh.classList.add('dc-enter-prev');
   live[i].replaceWith(fresh);
   live[i]=fresh;
   // Hide the others via a class so each section keeps its own inline
   // `display` (several rely on `display:flex`); never override display here.
   live.forEach((el,idx)=>{ el.classList.toggle('dc-hidden', idx!==i); });
+}
+
+// A short-lived clone of the outgoing slide that drifts out in the travel
+// direction, so navigation crossfades instead of hard-cutting.
+function spawnExitGhost(node, dir){
+  if(!node || dir===0) return;
+  const ghost = node.cloneNode(true);
+  ghost.classList.remove('dc-hidden');
+  ghost.classList.add('dc-ghost');
+  ghost.style.pointerEvents='none';
+  ghost.style.zIndex='6';
+  ghost.style.animation=(dir===1?'slideOutNext':'slideOutPrev')+' .3s cubic-bezier(.7,0,.84,0) both';
+  node.parentNode.appendChild(ghost);
+  const kill=()=>{ if(ghost.parentNode) ghost.remove(); };
+  ghost.addEventListener('animationend', kill, {once:true});
+  setTimeout(kill, 500);
 }
 
 function updateChrome(){
@@ -528,17 +560,31 @@ function buildPopup(open){
 function renderPopup(){ popupEl.innerHTML = state.open ? buildPopup(state.open) : ''; }
 
 // ---- navigation ----
-function setSlide(n){
+function setSlide(n, dirHint){
   n=Math.max(0,Math.min(TOTAL-1,n));
   const changed = n!==state.slide;
+  const dir = !changed ? 0 : (dirHint!=null ? dirHint : (n>state.slide?1:-1));
+  if(changed) spawnExitGhost(live[state.slide], dir);
   state.slide=n; state.open=null;
-  if(changed) mountSection(n);
+  if(changed) mountSection(n, dir);
   updateChrome(); renderPopup();
   if(n===8) runCount();
 }
-function go(d){ setSlide(state.slide+d); }
+function go(d){ setSlide(state.slide+d, d>0?1:-1); }
 function openItem(key){ state.open=key; renderPopup(); }
-function back(){ state.open=null; renderPopup(); }
+function back(){
+  // Play a quick exit before clearing, so the popup recedes instead of vanishing.
+  if(!state.open){ popupEl.innerHTML=''; return; }
+  state.open=null;
+  const overlay=popupEl.children[0], card=popupEl.children[1];
+  if(card){
+    if(overlay) overlay.style.animation='backdropOut .19s ease both';
+    card.style.animation='detailOut .19s cubic-bezier(.7,0,.84,0) both';
+    const done=()=>{ if(!state.open) popupEl.innerHTML=''; };
+    card.addEventListener('animationend', done, {once:true});
+    setTimeout(done, 260);
+  } else { popupEl.innerHTML=''; }
+}
 function detailStep(d){ const g=GROUPS[state.slide]||[]; const i=g.indexOf(state.open); if(i<0) return; state.open=g[(i+d+g.length)%g.length]; renderPopup(); }
 
 // ---- event delegation (clicks) ----
