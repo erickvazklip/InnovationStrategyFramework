@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Innovation Strategy Framework — propuesta técnico-comercial de OmniSys para la dirección de Tiendas Garcés. Deck interactivo de 11 secciones.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#06101F">
@@ -49,11 +49,40 @@ button{font-family:inherit}
 .s7tip-o{margin:9px 0 0;font:400 10.5px/1.45 'IBM Plex Sans',sans-serif;color:#8FA0C2}
 .s7tip-o b{color:#C9D3E6;font-weight:600}
 .s7ckpt{cursor:pointer}
+/* --- Responsive: fill the safe area; the JS scaler fits the deck to it --- */
+.dc-host{padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+/* Never let flex shrink the fixed canvas below 1280x720 (that would clip the
+   16:9 content); the transform does all the fitting. */
+.dc-host>[data-stage]{flex:none}
+/* Portrait phones: the 16:9 deck can't be legible shrunk to a portrait band,
+   so we ask for landscape with an on-brand prompt instead of a tiny card. */
+.dc-rotate{display:none}
+@media (orientation:portrait) and (max-width:560px){
+  .dc-host{display:none!important}
+  .dc-rotate{display:flex}
+}
+.dc-rotate{position:fixed;inset:0;z-index:9999;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:22px;padding:calc(env(safe-area-inset-top) + 32px) 40px calc(env(safe-area-inset-bottom) + 32px);background:radial-gradient(130% 130% at 50% 0%,#122A55 0%,#040A17 100%);color:#fff}
+.dc-rotate__brand{display:flex;align-items:center;gap:11px;margin-bottom:6px}
+.dc-rotate__mark{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,#1B3068,#0D1D47);display:flex;align-items:center;justify-content:center}
+.dc-rotate__mark span{width:9px;height:9px;border-radius:2px;background:#E31920}
+.dc-rotate__wm{font:700 17px/1 'Schibsted Grotesk',sans-serif;letter-spacing:-.01em}
+.dc-rotate__icon{width:76px;height:76px;color:#8FA6D6;animation:rockPhone 2.6s cubic-bezier(.45,0,.15,1) infinite}
+@keyframes rockPhone{0%,42%{transform:rotate(0)}62%,84%{transform:rotate(-90deg)}100%{transform:rotate(-90deg)}}
+.dc-rotate h2{margin:0;font:700 clamp(24px,7vw,32px)/1.12 'Schibsted Grotesk',sans-serif;letter-spacing:-.02em}
+.dc-rotate p{margin:0;max-width:30ch;font:400 clamp(13px,3.6vw,15px)/1.55 'IBM Plex Sans',sans-serif;color:#AEBAD4}
+.dc-rotate__tag{margin-top:4px;font:600 10px/1 'IBM Plex Mono',monospace;letter-spacing:.22em;color:#5C6E93}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
 </style>
 </head>
 <body>
-<div style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(130% 130% at 50% 0%,#122A55 0%,#040A17 100%))">
+<div class="dc-rotate" role="dialog" aria-label="Gira tu dispositivo">
+  <div class="dc-rotate__brand"><span class="dc-rotate__mark"><span></span></span><span class="dc-rotate__wm">OmniSys</span></div>
+  <svg class="dc-rotate__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="3" width="8" height="18" rx="2"/><path d="M12 17.5h.01"/><path d="M3.5 9.5A9 9 0 0 1 6 6"/><path d="M2.5 6.5 3.5 9.5 6.5 8.5"/></svg>
+  <h2>Gira tu dispositivo</h2>
+  <p>Esta propuesta está diseñada como presentación panorámica. Colócala en <strong style="color:#DCE3F2;font-weight:600">horizontal</strong> para verla a pantalla completa.</p>
+  <div class="dc-rotate__tag">INNOVATION STRATEGY FRAMEWORK</div>
+</div>
+<div class="dc-host" style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(130% 130% at 50% 0%,#122A55 0%,#040A17 100%))">
   <div data-stage="1" style="width:1280px;height:720px;position:relative;background:#FFFFFF;border-radius:6px;box-shadow:0 40px 120px -30px rgba(30,41,90,.4),0 0 0 1px rgba(30,41,90,.05);overflow:hidden;transform:scale(1);transform-origin:center center;color:#10182B">
 
     <div style="position:absolute;top:0;left:0;height:3px;background:linear-gradient(90deg,#E31920,#1B3068);z-index:40;transition:width .55s cubic-bezier(.2,0,0,1);width:0%" data-progress></div>
@@ -647,8 +676,24 @@ window.addEventListener('keydown',(e)=>{
 });
 
 // ---- responsive scale ----
-function resize(){ state.scale=Math.min(window.innerWidth/1280, window.innerHeight/720, 1.6); rootEl.style.transform='scale('+state.scale+')'; }
+// Fit the fixed 1280x720 stage to the host's *safe* box (clientWidth/Height
+// excludes the safe-area padding), so on notched phones in landscape the deck
+// clears the notch and the home indicator instead of tucking under them.
+function resize(){
+  const host=stageEl.parentElement;
+  const w=host.clientWidth||window.innerWidth;
+  const h=host.clientHeight||window.innerHeight;
+  state.scale=Math.min(w/1280, h/720, 1.6);
+  rootEl.style.transform='scale('+state.scale+')';
+}
 window.addEventListener('resize', resize);
+window.addEventListener('orientationchange', resize);
+// visualViewport tracks the collapsing Safari toolbar (which changes usable
+// height without always firing window 'resize').
+if(window.visualViewport){ window.visualViewport.addEventListener('resize', resize); }
+// ResizeObserver catches every host size change reliably — including the
+// portrait->landscape switch where the host goes from display:none to visible.
+if(window.ResizeObserver){ new ResizeObserver(resize).observe(stageEl.parentElement); }
 
 // ---- init ----
 const hideStyle=document.createElement('style');
