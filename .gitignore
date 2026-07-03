@@ -1,0 +1,16 @@
+# Local design-tool handoff bundle & generated artifacts (kept locally, not published)
+.archive/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Claude Code local settings (personal, machine-specific)
+.claude/settings.local.json
+
+# Dependencies / build (none currently, but future-proofing)
+node_modules/
+dist/

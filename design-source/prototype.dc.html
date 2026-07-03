@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700;800&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;height:100%;background:#06101F;font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button{font-family:inherit}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes popIn{from{opacity:0;transform:scale(.84)}to{opacity:1;transform:scale(1)}}
+@keyframes growX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes detailIn{from{opacity:0}to{opacity:1}}
+@keyframes slowzoom{from{transform:scale(1.02)}to{transform:scale(1.1)}}
+</style>
+</helmet>
+
+<div style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(130% 130% at 50% 0%,#122A55 0%,#040A17 100%))">
+  <div data-stage="1" style="width:1280px;height:720px;position:relative;background:#FFFFFF;border-radius:6px;box-shadow:0 40px 120px -30px rgba(30,41,90,.4),0 0 0 1px rgba(30,41,90,.05);overflow:hidden;transform:scale({{ scale }});transform-origin:center center;color:#10182B">
+
+    <div style="position:absolute;top:0;left:0;height:3px;background:linear-gradient(90deg,#E31920,#1B3068);z-index:40;transition:width .55s cubic-bezier(.2,0,0,1);width:{{ progressPct }}"></div>
+
+    <div style="position:absolute;top:0;left:0;right:0;height:100px;z-index:15;pointer-events:none">
+      <div style="position:absolute;left:84px;top:34px;display:flex;align-items:center;gap:11px">
+        <span style="width:24px;height:24px;border-radius:7px;background:linear-gradient(135deg,#1B3068,#0D1D47);display:flex;align-items:center;justify-content:center"><span style="width:8px;height:8px;border-radius:2px;background:#E31920"></span></span>
+        <span style="font:700 16px/1 'Schibsted Grotesk',sans-serif;color:#10182B;letter-spacing:-.01em">OmniSys</span>
+        <span style="width:1px;height:15px;background:#D8DCE5"></span>
+        <span style="font:500 10px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#AEB6C4">30 AÑOS · 1996–2026</span>
+      </div>
+      <div style="position:absolute;right:84px;top:37px;display:flex;align-items:center;gap:12px">
+        <span style="font:500 10px/1 'IBM Plex Mono',monospace;letter-spacing:.16em;color:#AEB6C4">PROPUESTA TÉCNICO-COMERCIAL</span>
+        <span style="font:600 9.5px/1 'IBM Plex Mono',monospace;letter-spacing:.16em;color:#E31920;border:1px solid #F3C7CB;border-radius:4px;padding:5px 8px">CONFIDENCIAL</span>
+      </div>
+      <div style="position:absolute;left:84px;right:84px;bottom:0;height:1px;background:#E6E9EF"></div>
+    </div>
+
+    <sc-if value="{{ s1 }}" hint-placeholder-val="{{ true }}">
+      <section data-screen-label="01" style="position:absolute;left:0;right:0;top:100px;bottom:78px;overflow:hidden">
+        <div style="position:absolute;right:0;top:0;bottom:0;width:590px;background:url('assets/img/a9.jpg') center/cover;animation:slowzoom 22s ease-out both;filter:grayscale(.32) contrast(1.03) brightness(.98);-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.12) 26%,#000 64%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.12) 26%,#000 64%)"></div>
+        
+        <div style="position:absolute;left:84px;top:0;bottom:0;width:600px;display:flex;flex-direction:column;justify-content:center">
+          <div style="font:600 11px/1 'IBM Plex Mono',monospace;letter-spacing:.26em;text-transform:uppercase;color:#1B3068;display:inline-flex;align-items:center;gap:10px;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:120ms"><span style="width:7px;height:7px;background:#E31920;border-radius:1px"></span>Propuesta Comercial · Tiendas Garcés</div>
+          <h1 style="margin:24px 0 0;font:700 60px/1.02 'Schibsted Grotesk',sans-serif;letter-spacing:-.03em;color:#10182B;animation:fadeUp .7s cubic-bezier(.2,0,0,1) both;animation-delay:240ms">Innovation<br><span style="color:#E31920">Strategy Framework</span></h1>
+          <div style="width:56px;height:3px;margin:28px 0 0;background:#1B3068;animation:fadeUp .7s cubic-bezier(.2,0,0,1) both;animation-delay:360ms"></div>
+          <p style="margin:26px 0 0;max-width:470px;font:400 18px/1.55 'IBM Plex Sans',sans-serif;color:#475569;animation:fadeUp .7s cubic-bezier(.2,0,0,1) both;animation-delay:440ms">Una propuesta de innovación estratégica para la dirección de <strong style="color:#10182B;font-weight:600">Tiendas Garcés</strong>.</p>
+          <div style="margin-top:38px;display:flex;align-items:center;gap:16px;animation:fadeUp .7s cubic-bezier(.2,0,0,1) both;animation-delay:560ms">
+            <button onClick="{{ next }}" style="display:inline-flex;align-items:center;gap:10px;background:#1B3068;color:#fff;border:none;border-radius:10px;padding:14px 22px;cursor:pointer;font:600 14px/1 'IBM Plex Sans',sans-serif;transition:all .16s" style-hover="background:#12224A">Explorar la propuesta <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <span style="font:400 13px/1 'IBM Plex Sans',sans-serif;color:#94A3B8">11 secciones · detalle navegable</span>
+          </div>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ s2 }}" hint-placeholder-val="{{ false }}">
+      <section data-screen-label="02" style="position:absolute;left:0;right:0;top:100px;bottom:78px;overflow:hidden">
+        <div style="position:absolute;right:0;top:0;bottom:0;width:400px;background:url('assets/img/b7.jpg') center/cover;filter:grayscale(.32) contrast(1.03) brightness(.98);-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.12) 26%,#000 64%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.12) 26%,#000 64%)"></div>
+        <div style="position:absolute;right:0;top:0;bottom:0;width:400px;background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.6) 24%,rgba(255,255,255,0) 62%),linear-gradient(150deg,rgba(27,48,104,.14),rgba(27,48,104,0) 60%)"></div>
+        <div style="position:absolute;left:84px;right:360px;top:0;bottom:0;padding:30px 0;display:flex;flex-direction:column">
+          <div style="font:600 12px/1 'IBM Plex Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:#1B3068;display:inline-flex;align-items:center;gap:9px;animation:fadeUp .55s cubic-bezier(.2,0,0,1) both;animation-delay:60ms"><span style="width:7px;height:7px;background:#E31920;border-radius:1px"></span>02 · El contexto</div>
+          <h1 style="margin:16px 0 0;font:700 35px/1.1 'Schibsted Grotesk',sans-serif;letter-spacing:-.02em;color:#10182B;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:140ms">El momento exige una respuesta deliberada</h1>
+          <p style="margin:18px 0 0;font:500 22px/1.4 'Schibsted Grotesk',sans-serif;color:#1B2540;letter-spacing:-.01em;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:240ms">En todo sector llega un punto de inflexión en el que el modelo operativo que sostuvo el crecimiento deja de ser el que sostendrá el siguiente.</p>
+          <p style="margin:12px 0 0;font:400 14px/1.6 'IBM Plex Sans',sans-serif;color:#64748B;max-width:560px;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:320ms">Anticiparlo es visión. Convertirlo en una agenda de evolución con criterio —y sin arriesgar la operación— es disciplina estratégica.</p>
+          <div style="margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+            <div data-open="s2a" onClick="{{ openItem }}" style="position:relative;background:#fff;border:1px solid #E6E9EF;border-radius:14px;padding:20px;cursor:pointer;transition:all .18s cubic-bezier(.2,0,0,1);animation:rise .6s cubic-bezier(.2,0,0,1) both;animation-delay:440ms" style-hover="transform:translateY(-5px);box-shadow:0 22px 44px -18px rgba(27,48,104,.28);border-color:#C4D5EE">
+              <div style="width:42px;height:42px;border-radius:11px;background:#EEF3FB;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1B3068" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M16 6h5v5"/></svg></div>
+              <div style="font:600 15.5px/1.28 'Schibsted Grotesk',sans-serif;color:#10182B;letter-spacing:-.01em">Costo operativo creciente</div>
+              <div style="margin-top:12px;display:flex;align-items:center;gap:6px;font:600 10.5px/1 'IBM Plex Mono',monospace;color:#1B3068;letter-spacing:.03em">PROFUNDIZAR <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1B3068" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            </div>
+            <div data-open="s2b" onClick="{{ openItem }}" style="position:relative;background:#fff;border:1px solid #E6E9EF;border-radius:14px;padding:20px;cursor:pointer;transition:all .18s cubic-bezier(.2,0,0,1);animation:rise .6s cubic-bezier(.2,0,0,1) both;animation-delay:540ms" style-hover="transform:translateY(-5px);box-shadow:0 22px 44px -18px rgba(27,48,104,.28);border-color:#C4D5EE">
+              <div style="width:42px;height:42px;border-radius:11px;background:#EEF3FB;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1B3068" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/></svg></div>
+              <div style="font:600 15.5px/1.28 'Schibsted Grotesk',sans-serif;color:#10182B;letter-spacing:-.01em">Nuevas formas de competir</div>
+              <div style="margin-top:12px;display:flex;align-items:center;gap:6px;font:600 10.5px/1 'IBM Plex Mono',monospace;color:#1B3068;letter-spacing:.03em">PROFUNDIZAR <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1B3068" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            </div>
+            <div data-open="s2c" onClick="{{ openItem }}" style="position:relative;background:#fff;border:1px solid #E6E9EF;border-radius:14px;padding:20px;cursor:pointer;transition:all .18s cubic-bezier(.2,0,0,1);animation:rise .6s cubic-bezier(.2,0,0,1) both;animation-delay:640ms" style-hover="transform:translateY(-5px);box-shadow:0 22px 44px -18px rgba(27,48,104,.28);border-color:#C4D5EE">
+              <div style="width:42px;height:42px;border-radius:11px;background:#EEF3FB;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1B3068" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="14" rx="2.5"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div>
+              <div style="font:600 14px/1.28 'Schibsted Grotesk',sans-serif;color:#10182B;letter-spacing:-.01em">Tecnología más rápida que la certeza</div>
+              <div style="margin-top:12px;display:flex;align-items:center;gap:6px;font:600 10.5px/1 'IBM Plex Mono',monospace;color:#1B3068;letter-spacing:.03em">PROFUNDIZAR <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1B3068" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ s3 }}" hint-placeholder-val="{{ false }}">
+      <section data-screen-label="03" style="position:absolute;left:0;right:0;top:100px;bottom:78px;padding:26px 84px;display:flex;flex-direction:column">
+        <div style="font:600 12px/1 'IBM Plex Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:#1B3068;display:inline-flex;align-items:center;gap:9px;animation:fadeUp .55s cubic-bezier(.2,0,0,1) both;animation-delay:60ms"><span style="width:7px;height:7px;background:#E31920;border-radius:1px"></span>03 · El enfoque</div>
+        <h1 style="margin:8px 0 0;font:700 28px/1.07 'Schibsted Grotesk',sans-serif;letter-spacing:-.02em;color:#10182B;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:130ms">De la exploración a una agenda defendible</h1>
+        <div style="margin-top:16px;flex:1;min-height:0;display:grid;grid-template-columns:340px 1fr;gap:28px">
+          <div style="display:flex;flex-direction:column;gap:16px;min-height:0">
+            <div data-open="s3a" onClick="{{ openItem }}" style="flex:1;background:linear-gradient(160deg,#1B3068,#0D1D47);color:#fff;border-radius:16px;padding:22px;cursor:pointer;display:flex;flex-direction:column;box-shadow:0 22px 50px -20px rgba(27,48,104,.5);transition:all .18s;animation:rise .6s cubic-bezier(.2,0,0,1) both;animation-delay:220ms" style-hover="transform:translateY(-4px)">
+              <div style="font:500 10px/1 'IBM Plex Mono',monospace;letter-spacing:.18em;text-transform:uppercase;opacity:.66">El core del servicio</div>
+              <div style="margin-top:9px;font:700 25px/1.12 'Schibsted Grotesk',sans-serif;letter-spacing:-.01em">Innovación Estratégica</div>
+              <p style="margin:12px 0 0;font:400 13px/1.55 'IBM Plex Sans',sans-serif;opacity:.86">La disciplina de innovar el modelo operativo dirigido desde la estrategia del negocio y con criterio directivo — no por moda, ni en experimentos sueltos, sino de forma deliberada hacia donde crea ventaja real y medible.</p>
+              <div style="margin-top:auto;padding-top:14px;display:inline-flex;align-items:center;gap:6px;font:600 11px/1 'IBM Plex Mono',monospace;color:#fff;opacity:.9">PROFUNDIZAR <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            </div>
+            <div data-open="s3c" onClick="{{ openItem }}" style="display:flex;align-items:center;gap:11px;padding:13px 16px;border:1px solid #E6E9EF;border-radius:12px;cursor:pointer;transition:all .18s;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:320ms" style-hover="border-color:#C4D5EE;background:#F7F9FC">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1B3068" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 4v5c0 4.5-3 7-7 9-4-2-7-4.5-7-9V7z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg>
+              <span style="font:600 13px/1.2 'IBM Plex Sans',sans-serif;color:#10182B;flex:1">Independencia de criterio</span>
+              <span style="color:#1B3068"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:16px;min-height:0">
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:11px;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:300ms">
+              <div style="background:#F7F9FC;border:1px solid #EAEEF4;border-radius:14px;padding:18px 17px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B3068" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.2 5.3-5.3 2.2 2.2-5.3z"/></svg><div style="margin-top:13px;font:700 14px/1.16 'Schibsted Grotesk',sans-serif;color:#10182B">Dirigida por la estrategia</div><div style="margin-top:6px;font:400 12px/1.5 'IBM Plex Sans',sans-serif;color:#64748B">Parte del negocio —margen, capacidad, competitividad—, no de la tecnología.</div></div>
+              <div style="background:#F7F9FC;border:1px solid #EAEEF4;border-radius:14px;padding:18px 17px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B3068" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-6M4 11V3M12 21v-8M12 9V3M20 21v-4M20 13V3M1 15h6M9 9h6M17 17h6"/></svg><div style="margin-top:13px;font:700 14px/1.16 'Schibsted Grotesk',sans-serif;color:#10182B">Con criterio directivo</div><div style="margin-top:6px;font:400 12px/1.5 'IBM Plex Sans',sans-serif;color:#64748B">Se decide con lógica de negocio e impacto económico, no por tendencia.</div></div>
+              <div style="background:#F7F9FC;border:1px solid #EAEEF4;border-radius:14px;padding:18px 17px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B3068" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="0.6" fill="#1B3068"/></svg><div style="margin-top:13px;font:700 14px/1.16 'Schibsted Grotesk',sans-serif;color:#10182B">Orientada a la ventaja</div><div style="margin-top:6px;font:400 12px/1.5 'IBM Plex Sans',sans-serif;color:#64748B">Se innova donde crea diferencia competitiva real, no donde es novedoso.</div></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;flex:1;min-height:0;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:540ms">
+              <div data-open="s3b" onClick="{{ openItem }}" style="background:#EEF3FB;border:1px solid #DDE6F4;border-radius:12px;padding:22px 20px;cursor:pointer;transition:all .18s;display:flex;flex-direction:column;justify-content:center" style-hover="transform:translateY(-3px);box-shadow:0 14px 30px -16px rgba(27,48,104,.3)"><div style="display:flex;align-items:baseline;justify-content:space-between"><div style="font:700 16px/1.1 'Schibsted Grotesk',sans-serif;color:#1B3068">Eficiencia</div><span style="color:#1B3068"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div><div style="margin-top:7px;font:400 12.5px/1.5 'IBM Plex Sans',sans-serif;color:#5B6B84">Protege el margen de hoy · retorno cercano · riesgo menor.</div></div>
+              <div data-open="s3b" onClick="{{ openItem }}" style="background:#FDECEE;border:1px solid #F3C7CB;border-radius:12px;padding:22px 20px;cursor:pointer;transition:all .18s;display:flex;flex-direction:column;justify-content:center" style-hover="transform:translateY(-3px);box-shadow:0 14px 30px -16px rgba(227,25,32,.25)"><div style="display:flex;align-items:baseline;justify-content:space-between"><div style="font:700 16px/1.1 'Schibsted Grotesk',sans-serif;color:#E31920">Ventaja competitiva</div><span style="color:#E31920"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div><div style="margin-top:7px;font:400 12.5px/1.5 'IBM Plex Sans',sans-serif;color:#94564F">Construye la posición de mañana · retorno mayor · apuesta estructural.</div></div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:18px;font:400 13px/1.5 'IBM Plex Sans',sans-serif;color:#475569;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:640ms"><em style="font-style:normal;font-weight:600;color:#10182B">Innovation Strategy Framework</em> transforma una inquietud exploratoria en una agenda de innovación estratégica: diagnosticada con profundidad, evaluada con independencia y priorizada por impacto económico.</div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ s4 }}" hint-placeholder-val="{{ false }}">
+      <section data-screen-label="04" style="position:absolute;left:0;right:0;top:100px;bottom:78px;padding:0 84px;display:flex;flex-direction:column">
+        <div style="margin-top:24px;font:600 12px/1 'IBM Plex Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:#1B3068;display:inline-flex;align-items:center;gap:9px;animation:fadeUp .55s cubic-bezier(.2,0,0,1) both;animation-delay:60ms"><span style="width:7px;height:7px;background:#E31920;border-radius:1px"></span>04 · El resultado</div>
+        <h1 style="margin:12px 0 0;font:700 31px/1.1 'Schibsted Grotesk',sans-serif;letter-spacing:-.02em;color:#10182B;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:140ms">Inteligencia estratégica lista para capitalizarse</h1>
+        <p style="margin:11px 0 0;font:400 14px/1.55 'IBM Plex Sans',sans-serif;color:#64748B;max-width:1000px;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:220ms">Al cierre del engagement, la dirección recibe un cuerpo de trabajo ejecutivo con calidad de comité directivo — la munición estratégica con la que decide, invierte y defiende su agenda ante el consejo.</p>
+        <div style="margin-top:20px;display:flex;gap:20px;flex:1;min-height:0">
+          <div style="flex:0 0 300px;position:relative;border-radius:16px;overflow:hidden;padding:26px 24px;color:#fff;display:flex;flex-direction:column;background:linear-gradient(160deg,rgba(27,48,104,.92),rgba(13,29,71,.96)),url('assets/img/b6.jpg') center/cover;animation:rise .6s cubic-bezier(.2,0,0,1) both;animation-delay:320ms">
+            <div style="font:500 10px/1 'IBM Plex Mono',monospace;letter-spacing:.18em;text-transform:uppercase;opacity:.66">Documento maestro</div>
+            <div style="margin-top:12px;font:700 25px/1.12 'Schibsted Grotesk',sans-serif;letter-spacing:-.01em">Executive Innovation Blueprint</div>
+            <p style="margin:12px 0 0;font:400 12.5px/1.5 'IBM Plex Sans',sans-serif;opacity:.85">Consolida toda la inteligencia del engagement en una sola pieza defendible.</p>
+            <div style="margin-top:auto;padding-top:18px;border-top:1px solid rgba(255,255,255,.18);display:flex;flex-direction:column;gap:9px">
+              <div data-open="s4-6" onClick="{{ openItem }}" style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.1);border-radius:9px;padding:10px 13px;cursor:pointer;transition:all .16s" style-hover="background:rgba(255,255,255,.2)"><span style="font:600 12.5px/1 'IBM Plex Sans',sans-serif">Board Readout Deck</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+              <div data-open="s4-7" onClick="{{ openItem }}" style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.1);border-radius:9px;padding:10px 13px;cursor:pointer;transition:all .16s" style-hover="background:rgba(255,255,255,.2)"><span style="font:600 12.5px/1 'IBM Plex Sans',sans-serif">Executive Summary</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            </div>
+          </div>
+          <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,1fr);gap:12px">
+            <div data-open="s4-1" onClick="{{ openItem }}" style="background:#fff;border:1px solid #E6E9EF;border-radius:12px;padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:14px;transition:all .18s;animation:rise .5s cubic-bezier(.2,0,0,1) both;animation-delay:400ms" style-hover="transform:translateY(-3px);box-shadow:0 16px 34px -14px rgba(27,48,104,.24);border-color:#C4D5EE"><span style="flex:0 0 32px;height:32px;border-radius:9px;background:#EEF3FB;color:#1B3068;font:700 15px/1 'Schibsted Grotesk';display:flex;align-items:center;justify-content:center">1</span><span style="font:600 14.5px/1.2 'Schibsted Grotesk',sans-serif;color:#10182B;letter-spacing:-.01em">Strategic Diagnosis</span></div>
+            <div data-open="s4-2" onClick="{{ openItem }}" style="background:#fff;border:1px solid #E6E9EF;border-radius:12px;padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:14px;transition:all .18s;animation:rise .5s cubic-bezier(.2,0,0,1) both;animation-delay:470ms" style-hover="transform:translateY(-3px);box-shadow:0 16px 34px -14px rgba(27,48,104,.24);border-color:#C4D5EE"><span style="flex:0 0 32px;height:32px;border-radius:9px;background:#EEF3FB;color:#1B3068;font:700 15px/1 'Schibsted Grotesk';display:flex;align-items:center;justify-content:center">2</span><span style="font:600 14.5px/1.2 'Schibsted Grotesk',sans-serif;color:#10182B;letter-spacing:-.01em">Innovation Opportunity Map</span></div>
+            <div data-open="s4-3" onClick="{{ openItem }}" style="background:#fff;border:1px solid #E6E9EF;border-radius:12px;padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:14px;transition:all .18s;animation:rise .5s cubic-bezier(.2,0,0,1) both;animation-delay:540ms" style-hover="transform:translateY(-3px);box-shadow:0 16px 34px -14px rgba(27,48,104,.24);border-color:#C4D5EE"><span style="flex:0 0 32px;height:32px;border-radius:9px;background:#EEF3FB;color:#1B3068;font:700 15px/1 'Schibsted Grotesk';display:flex;align-items:center;justify-content:center">3</span><span style="font:600 14.5px/1.2 'Schibsted Grotesk',sans-serif;color:#10182B;letter-spacing:-.01em">Prioritized Innovation Agenda</span></div>
+            <div data-open="s4-4" onClick="{{ openItem }}" style="background:#fff;border:1px solid #E6E9EF;border-radius:12px;padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:14px;transition:all .18s;animation:rise .5s cubic-bezier(.2,0,0,1) both;animation-delay:610ms" style-hover="transform:translateY(-3px);box-shadow:0 16px 34px -14px rgba(27,48,104,.24);border-color:#C4D5EE"><span style="flex:0 0 32px;height:32px;border-radius:9px;background:#EEF3FB;color:#1B3068;font:700 15px/1 'Schibsted Grotesk';display:flex;align-items:center;justify-content:center">4</span><span style="font:600 14.5px/1.2 'Schibsted Grotesk',sans-serif;color:#10182B;letter-spacing:-.01em">Governance &amp; Secure Adoption</span></div>
+            <div data-open="s4-5" onClick="{{ openItem }}" style="grid-column:1 / span 2;background:#fff;border:1px solid #E6E9EF;border-radius:12px;padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:14px;transition:all .18s;animation:rise .5s cubic-bezier(.2,0,0,1) both;animation-delay:680ms" style-hover="transform:translateY(-3px);box-shadow:0 16px 34px -14px rgba(27,48,104,.24);border-color:#C4D5EE"><span style="flex:0 0 32px;height:32px;border-radius:9px;background:#EEF3FB;color:#1B3068;font:700 15px/1 'Schibsted Grotesk';display:flex;align-items:center;justify-content:center">5</span><span style="font:600 14.5px/1.2 'Schibsted Grotesk',sans-serif;color:#10182B;letter-spacing:-.01em">Strategic Activation Plan</span></div>
+          </div>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ s5 }}" hint-placeholder-val="{{ false }}">
+      <section data-screen-label="05" style="position:absolute;left:0;right:0;top:100px;bottom:78px;padding:26px 84px 22px;display:flex;flex-direction:column">
+        <div style="font:600 12px/1 'IBM Plex Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:#1B3068;display:inline-flex;align-items:center;gap:9px;animation:fadeUp .55s cubic-bezier(.2,0,0,1) both;animation-delay:60ms"><span style="width:7px;height:7px;background:#E31920;border-radius:1px"></span>05 · La metodología</div>
+        <h1 style="margin:12px 0 0;font:700 30px/1.1 'Schibsted Grotesk',sans-serif;letter-spacing:-.02em;color:#10182B;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:140ms">Rigor visible en cada fase</h1>
+        <p style="margin:10px 0 0;font:400 14px/1.55 'IBM Plex Sans',sans-serif;color:#64748B;max-width:820px;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:220ms">La dirección no recibe conclusiones, sino la arquitectura de razonamiento que las sostiene — un flujo continuo de cada recomendación al dato que la fundamenta.</p>
+        <div style="margin-top:16px;display:flex;justify-content:space-between;align-items:center;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:300ms">
+          <span style="font:600 10px/1 'IBM Plex Mono',monospace;letter-spacing:.16em;color:#94A3B8">DE LA INQUIETUD EXPLORATORIA</span>
+          <span style="font:600 10px/1 'IBM Plex Mono',monospace;letter-spacing:.16em;color:#E31920">A LA AGENDA ACCIONABLE →</span>
+        </div>
+        <div style="flex:1;position:relative;margin-top:2px">
+          <svg viewBox="0 0 1120 260" preserveAspectRatio="xMidYMid meet" style="position:absolute;inset:0;width:100%;height:100%">
+            <defs>
+              <linearGradient id="g5" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1B3068"/><stop offset="1" stop-color="#3B82C4"/></linearGradient>
+              <filter id="glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <path d="M90 130 Q207.5 34 325 130 Q442.5 226 560 130 Q677.5 34 795 130 Q912.5 226 1030 130" fill="none" stroke="#E4E8EF" stroke-width="6" stroke-linecap="round"/>
+            <path d="M90 130 Q207.5 34 325 130 Q442.5 226 560 130 Q677.5 34 795 130 Q912.5 226 1030 130" fill="none" stroke="url(#g5)" stroke-width="6" stroke-linecap="round" stroke-dasharray="990" stroke-dashoffset="990" style="animation:draw 1.6s cubic-bezier(.2,0,0,1) .4s forwards"/>
+            <circle r="17" fill="#1B3068" opacity="0.12"><animateMotion dur="6s" repeatCount="indefinite" keyPoints="0;1;0" keyTimes="0;0.5;1" calcMode="spline" keySplines="0.45 0 0.15 1;0.45 0 0.15 1" path="M90 130 Q207.5 34 325 130 Q442.5 226 560 130 Q677.5 34 795 130 Q912.5 226 1030 130"/></circle>
+            <circle r="7.5" fill="url(#g5)" filter="url(#glow)"><animateMotion dur="6s" repeatCount="indefinite" keyPoints="0;1;0" keyTimes="0;0.5;1" calcMode="spline" keySplines="0.45 0 0.15 1;0.45 0 0.15 1" path="M90 130 Q207.5 34 325 130 Q442.5 226 560 130 Q677.5 34 795 130 Q912.5 226 1030 130"/></circle>
+            <g style="cursor:pointer" data-open="s5-1" onClick="{{ openItem }}">
+      <circle cx="90" cy="130" r="24" fill="#fff" stroke="#1B3068" stroke-width="2.5"/>
+      <text x="90" y="137" text-anchor="middle" font-family="Schibsted Grotesk" font-weight="700" font-size="17" fill="#1B3068">1</text>
+      <text x="90" y="172" text-anchor="middle" font-family="IBM Plex Sans" font-weight="600" font-size="11.5" fill="#334155">Executive<tspan x="90" y="187">Alignment</tspan></text>
+    </g>
+            <g style="cursor:pointer" data-open="s5-2" onClick="{{ openItem }}">
+      <circle cx="325" cy="130" r="24" fill="#fff" stroke="#1B3068" stroke-width="2.5"/>
+      <text x="325" y="137" text-anchor="middle" font-family="Schibsted Grotesk" font-weight="700" font-size="17" fill="#1B3068">2</text>
+      <text x="325" y="73" text-anchor="middle" font-family="IBM Plex Sans" font-weight="600" font-size="11.5" fill="#334155">Strategic Operating<tspan x="325" y="88">Assessment</tspan></text>
+    </g>
+            <g style="cursor:pointer" data-open="s5-3" onClick="{{ openItem }}">
+      <circle cx="560" cy="130" r="24" fill="#fff" stroke="#2A4F94" stroke-width="2.5"/>
+      <text x="560" y="137" text-anchor="middle" font-family="Schibsted Grotesk" font-weight="700" font-size="17" fill="#2A4F94">3</text>
+      <text x="560" y="172" text-anchor="middle" font-family="IBM Plex Sans" font-weight="600" font-size="11.5" fill="#334155">Opportunity Mapping<tspan x="560" y="187">&amp; Pathway</tspan></text>
+    </g>
+            <g style="cursor:pointer" data-open="s5-4" onClick="{{ openItem }}">
+      <circle cx="795" cy="130" r="24" fill="#fff" stroke="#37589C" stroke-width="2.5"/>
+      <text x="795" y="137" text-anchor="middle" font-family="Schibsted Grotesk" font-weight="700" font-size="17" fill="#37589C">4</text>
+      <text x="795" y="73" text-anchor="middle" font-family="IBM Plex Sans" font-weight="600" font-size="11.5" fill="#334155">Prioritization<tspan x="795" y="88">&amp; Business Case</tspan></text>
+    </g>
+            <g style="cursor:pointer" data-open="s5-5" onClick="{{ openItem }}">
+      <circle cx="1030" cy="130" r="24" fill="#fff" stroke="#E31920" stroke-width="2.5"/>
+      <text x="1030" y="137" text-anchor="middle" font-family="Schibsted Grotesk" font-weight="700" font-size="17" fill="#E31920">5</text>
+      <text x="1030" y="172" text-anchor="middle" font-family="IBM Plex Sans" font-weight="600" font-size="11.5" fill="#334155">Strategic Activation<tspan x="1030" y="187">&amp; Board Readout</tspan></text>
+    </g>
+          </svg>
+        </div>
+        <div style="display:flex;gap:9px;flex-wrap:wrap;justify-content:center;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:1000ms">
+          <span style="font:500 11.5px/1 'IBM Plex Mono',monospace;color:#1B3068;background:#EEF3FB;border:1px solid #C4D5EE;border-radius:20px;padding:8px 14px">Hypothesis-driven</span>
+          <span style="font:500 11.5px/1 'IBM Plex Mono',monospace;color:#1B3068;background:#EEF3FB;border:1px solid #C4D5EE;border-radius:20px;padding:8px 14px">Technology-agnostic</span>
+          <span style="font:500 11.5px/1 'IBM Plex Mono',monospace;color:#1B3068;background:#EEF3FB;border:1px solid #C4D5EE;border-radius:20px;padding:8px 14px">Value-led</span>
+          <span style="font:500 11.5px/1 'IBM Plex Mono',monospace;color:#1B3068;background:#EEF3FB;border:1px solid #C4D5EE;border-radius:20px;padding:8px 14px">Board-defensible</span>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ s6 }}" hint-placeholder-val="{{ false }}">
+      <section data-screen-label="06" style="position:absolute;left:0;right:0;top:100px;bottom:78px;overflow:hidden">
+        <div style="position:absolute;right:0;top:0;bottom:0;width:300px;background:url('assets/img/b8.jpg') center/cover;filter:grayscale(.32) contrast(1.03) brightness(.98);-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.12) 26%,#000 64%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.12) 26%,#000 64%)"></div>
+        <div style="position:absolute;right:0;top:0;bottom:0;width:300px;background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.62) 28%,rgba(255,255,255,0) 66%),linear-gradient(150deg,rgba(27,48,104,.12),rgba(27,48,104,0) 60%)"></div>
+        <div style="position:absolute;left:84px;right:280px;top:0;bottom:0;padding:26px 0;display:flex;flex-direction:column">
+          <div style="font:600 12px/1 'IBM Plex Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:#1B3068;display:inline-flex;align-items:center;gap:9px;animation:fadeUp .55s cubic-bezier(.2,0,0,1) both;animation-delay:60ms"><span style="width:7px;height:7px;background:#E31920;border-radius:1px"></span>06 · El modelo</div>
+          <h1 style="margin:12px 0 0;font:700 28px/1.12 'Schibsted Grotesk',sans-serif;letter-spacing:-.02em;color:#10182B;max-width:780px;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:140ms">La inteligencia estratégica está distribuida en la organización</h1>
+          <p style="margin:10px 0 0;font:400 13.5px/1.55 'IBM Plex Sans',sans-serif;color:#64748B;max-width:760px;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:220ms">La dirección fija el rumbo; la gerencia media conoce los cuellos de botella reales; los operativos clave poseen el detalle de dónde se gana o se pierde valor cada día.</p>
+          <div style="flex:1;display:flex;flex-direction:column;gap:11px;justify-content:center">
+            <div data-open="s6-dir" onClick="{{ openItem }}" style="width:100%;background:linear-gradient(100deg,#1B3068,#0D1D47);color:#fff;border-radius:13px;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:all .18s;animation:rise .55s cubic-bezier(.2,0,0,1) both;animation-delay:320ms" style-hover="transform:translateX(6px)">
+              <div style="display:flex;align-items:center;gap:18px"><span style="font:500 10px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;opacity:.6;width:24px">01</span><div><div style="font:700 18px/1.1 'Schibsted Grotesk',sans-serif">Nivel Directivo</div><div style="margin-top:3px;font:400 12px/1.3 'IBM Plex Sans',sans-serif;opacity:.78">C-Level y comité</div></div></div>
+              <div style="font:500 12px/1.3 'IBM Plex Sans',sans-serif;opacity:.9;text-align:right;max-width:250px">Visión, estrategia y criterios de decisión</div>
+            </div>
+            <div data-open="s6-ger" onClick="{{ openItem }}" style="width:88%;margin:0 auto;background:#EEF3FB;color:#1B3068;border:1px solid #DDE6F4;border-radius:13px;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:all .18s;animation:rise .55s cubic-bezier(.2,0,0,1) both;animation-delay:440ms" style-hover="transform:translateX(6px)">
+              <div style="display:flex;align-items:center;gap:18px"><span style="font:500 10px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;opacity:.5;width:24px">02</span><div><div style="font:700 18px/1.1 'Schibsted Grotesk',sans-serif">Nivel Gerencial</div><div style="margin-top:3px;font:400 12px/1.3 'IBM Plex Sans',sans-serif;color:#5C7BC0">Gerencia media y líderes de área</div></div></div>
+              <div style="font:500 12px/1.3 'IBM Plex Sans',sans-serif;text-align:right;max-width:250px">Procesos, ejecución y cuellos de botella</div>
+            </div>
+            <div data-open="s6-op" onClick="{{ openItem }}" style="width:76%;margin:0 auto;background:#F5F8FC;color:#334155;border:1px solid #E6EDF6;border-radius:13px;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:all .18s;animation:rise .55s cubic-bezier(.2,0,0,1) both;animation-delay:560ms" style-hover="transform:translateX(6px)">
+              <div style="display:flex;align-items:center;gap:18px"><span style="font:500 10px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;opacity:.5;width:24px">03</span><div><div style="font:700 18px/1.1 'Schibsted Grotesk',sans-serif;color:#1B3068">Nivel Operativo</div><div style="margin-top:3px;font:400 12px/1.3 'IBM Plex Sans',sans-serif;color:#64748B">Operativos clave y expertos de proceso</div></div></div>
+              <div style="font:500 12px/1.3 'IBM Plex Sans',sans-serif;text-align:right;max-width:250px">Conocimiento granular del día a día</div>
+            </div>
+          </div>
+          <div style="display:flex;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:660ms">
+            <div data-open="s6-7tp" onClick="{{ openItem }}" style="display:inline-flex;align-items:center;gap:9px;padding:10px 18px;border:1px solid #E6E9EF;border-radius:22px;cursor:pointer;transition:all .18s" style-hover="border-color:#C4D5EE;background:#F7F9FC"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1B3068" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg><span style="font:600 12.5px/1 'IBM Plex Sans',sans-serif;color:#10182B">Los 7 touchpoints del engagement</span></div>
+          </div>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ s7 }}" hint-placeholder-val="{{ false }}">
+      <section data-screen-label="07" style="position:absolute;left:0;right:0;top:100px;bottom:78px;overflow:hidden">
+        <div style="position:absolute;inset:0;background:url('assets/img/a6.jpg') center/cover;filter:grayscale(.32) contrast(1.03) brightness(.98);-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.12) 26%,#000 64%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.12) 26%,#000 64%)"></div>
+        <div style="position:absolute;inset:0;background:rgba(255,255,255,.9)"></div>
+        <div style="position:absolute;inset:0;padding:26px 84px;display:flex;flex-direction:column">
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:30px">
+            <div>
+              <div style="font:600 12px/1 'IBM Plex Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:#1B3068;display:inline-flex;align-items:center;gap:9px;animation:fadeUp .55s cubic-bezier(.2,0,0,1) both;animation-delay:60ms"><span style="width:7px;height:7px;background:#E31920;border-radius:1px"></span>07 · El calendario</div>
+              <h1 style="margin:12px 0 0;font:700 30px/1.1 'Schibsted Grotesk',sans-serif;letter-spacing:-.02em;color:#10182B;max-width:680px;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:140ms">Del diagnóstico a la decisión en semanas, no meses</h1>
+            </div>
+            <div style="text-align:right"><div style="font:800 44px/1 'Schibsted Grotesk',sans-serif;color:#E31920;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:200ms">4–6</div><div style="font:500 11px/1 'IBM Plex Mono',monospace;color:#94A3B8;letter-spacing:.1em;margin-top:4px">SEMANAS</div></div>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;justify-content:center;position:relative;margin-top:8px">
+            <div style="display:grid;grid-template-columns:250px repeat(6,1fr);margin-bottom:12px">
+              <div></div><div style="text-align:center;font:600 11px/1 'IBM Plex Mono',monospace;color:#94A3B8">S1</div><div style="text-align:center;font:600 11px/1 'IBM Plex Mono',monospace;color:#94A3B8">S2</div><div style="text-align:center;font:600 11px/1 'IBM Plex Mono',monospace;color:#94A3B8">S3</div><div style="text-align:center;font:600 11px/1 'IBM Plex Mono',monospace;color:#94A3B8">S4</div><div style="text-align:center;font:600 11px/1 'IBM Plex Mono',monospace;color:#94A3B8">S5</div><div style="text-align:center;font:600 11px/1 'IBM Plex Mono',monospace;color:#94A3B8">S6</div>
+            </div>
+            <div style="position:absolute;top:22px;bottom:6px;left:calc(250px + (100% - 250px) * 0.5);width:0;border-left:2px dashed #E31920;z-index:3"><div style="position:absolute;top:-4px;left:-5px;width:8px;height:8px;border-radius:50%;background:#E31920"></div><div style="position:absolute;top:-28px;left:-58px;width:120px;text-align:center;font:600 9.5px/1.3 'IBM Plex Mono',monospace;color:#E31920;letter-spacing:.04em">STEERING CHECKPOINT</div></div>
+            <div style="display:flex;flex-direction:column;gap:11px;position:relative;z-index:2">
+              <div style="display:grid;grid-template-columns:250px repeat(6,1fr);align-items:center"><div style="font:600 13px/1.2 'IBM Plex Sans',sans-serif;color:#334155;padding-right:14px">Executive Alignment</div><div style="grid-column:2 / 3;height:30px;border-radius:8px;background:#1B3068;transform-origin:left;animation:growX .6s cubic-bezier(.2,0,0,1) both;animation-delay:340ms"></div></div>
+              <div style="display:grid;grid-template-columns:250px repeat(6,1fr);align-items:center"><div style="font:600 13px/1.2 'IBM Plex Sans',sans-serif;color:#334155;padding-right:14px">Strategic Operating Assessment</div><div style="grid-column:2 / 4;height:30px;border-radius:8px;background:#25417C;transform-origin:left;animation:growX .6s cubic-bezier(.2,0,0,1) both;animation-delay:460ms"></div></div>
+              <div style="display:grid;grid-template-columns:250px repeat(6,1fr);align-items:center"><div style="font:600 13px/1.2 'IBM Plex Sans',sans-serif;color:#334155;padding-right:14px">Opportunity Mapping &amp; Pathway</div><div style="grid-column:3 / 5;height:30px;border-radius:8px;background:#33518F;transform-origin:left;animation:growX .6s cubic-bezier(.2,0,0,1) both;animation-delay:580ms"></div></div>
+              <div style="display:grid;grid-template-columns:250px repeat(6,1fr);align-items:center"><div style="font:600 13px/1.2 'IBM Plex Sans',sans-serif;color:#334155;padding-right:14px">Prioritization &amp; Business Case</div><div style="grid-column:4 / 6;height:30px;border-radius:8px;background:#4767A6;transform-origin:left;animation:growX .6s cubic-bezier(.2,0,0,1) both;animation-delay:700ms"></div></div>
+              <div style="display:grid;grid-template-columns:250px repeat(6,1fr);align-items:center"><div style="font:600 13px/1.2 'IBM Plex Sans',sans-serif;color:#334155;padding-right:14px">Strategic Activation &amp; Board Readout</div><div style="grid-column:5 / 8;height:30px;border-radius:8px;background:#5C7BC0;transform-origin:left;animation:growX .6s cubic-bezier(.2,0,0,1) both;animation-delay:820ms"></div></div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:900ms">
+            <div data-open="s7-dur" onClick="{{ openItem }}" style="display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border:1px solid #E6E9EF;border-radius:10px;cursor:pointer;transition:all .18s;background:#fff" style-hover="border-color:#C4D5EE;background:#F7F9FC"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1B3068" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span style="font:600 12.5px/1 'IBM Plex Sans',sans-serif;color:#10182B">¿Por qué 4 a 6 semanas?</span></div>
+            <div data-open="s7-steer" onClick="{{ openItem }}" style="display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border:1px solid #F3C7CB;border-radius:10px;cursor:pointer;transition:all .18s;background:#fff" style-hover="background:#FDF2F3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E31920" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><span style="font:600 12.5px/1 'IBM Plex Sans',sans-serif;color:#10182B">Steering Checkpoint</span></div>
+          </div>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ s8 }}" hint-placeholder-val="{{ false }}">
+      <section data-screen-label="08" style="position:absolute;left:0;right:0;top:100px;bottom:78px;overflow:hidden">
+        <div style="position:absolute;right:0;top:0;bottom:0;width:290px;background:url('assets/img/a1.jpg') center/cover;filter:grayscale(.32) contrast(1.03) brightness(.98);-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.12) 26%,#000 64%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.12) 26%,#000 64%)"></div>
+        <div style="position:absolute;right:0;top:0;bottom:0;width:290px;background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.62) 30%,rgba(255,255,255,0) 68%),linear-gradient(150deg,rgba(27,48,104,.12),rgba(27,48,104,0) 60%)"></div>
+        <div style="position:absolute;left:84px;right:270px;top:0;bottom:0;padding:24px 0;display:flex;flex-direction:column">
+          <div style="font:600 12px/1 'IBM Plex Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:#1B3068;display:inline-flex;align-items:center;gap:9px;animation:fadeUp .55s cubic-bezier(.2,0,0,1) both;animation-delay:60ms"><span style="width:7px;height:7px;background:#E31920;border-radius:1px"></span>08 · Lo que gana la dirección</div>
+          <h1 style="margin:12px 0 0;font:700 30px/1.1 'Schibsted Grotesk',sans-serif;letter-spacing:-.02em;color:#10182B;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:140ms">Lo que la dirección gana al finalizar</h1>
+          <p style="margin:10px 0 0;font:400 13.5px/1.55 'IBM Plex Sans',sans-serif;color:#64748B;max-width:820px;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:220ms">Más allá de los documentos, el engagement deja a la organización en una posición estratégica distinta a la de partida. Estos son los resultados tangibles que Tiendas Garcés captura al cierre.</p>
+          <div style="margin-top:16px;flex:1;min-height:0;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr;gap:12px">
+            <div data-open="o1" onClick="{{ openItem }}" style="position:relative;background:#fff;border:1px solid #E6E9EF;border-left:3px solid #E31920;border-radius:12px;padding:15px 17px;cursor:pointer;transition:all .18s;animation:rise .5s cubic-bezier(.2,0,0,1) both;animation-delay:300ms" style-hover="box-shadow:0 18px 36px -16px rgba(27,48,104,.26);transform:translateY(-4px)"><div style="font:600 9.5px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#1B3068;margin-bottom:6px">Resultado 01</div><div style="font:600 16px/1.2 'Schibsted Grotesk',sans-serif;color:#10182B;letter-spacing:-.01em">Claridad estratégica</div><div style="position:absolute;bottom:14px;right:15px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1B3068" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+            <div data-open="o2" onClick="{{ openItem }}" style="position:relative;background:#fff;border:1px solid #E6E9EF;border-left:3px solid #E31920;border-radius:12px;padding:15px 17px;cursor:pointer;transition:all .18s;animation:rise .5s cubic-bezier(.2,0,0,1) both;animation-delay:380ms" style-hover="box-shadow:0 18px 36px -16px rgba(27,48,104,.26);transform:translateY(-4px)"><div style="font:600 9.5px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#1B3068;margin-bottom:6px">Resultado 02</div><div style="font:600 16px/1.2 'Schibsted Grotesk',sans-serif;color:#10182B;letter-spacing:-.01em">Una agenda priorizada y defendible</div><div style="position:absolute;bottom:14px;right:15px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1B3068" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+            <div data-open="o3" onClick="{{ openItem }}" style="position:relative;background:#fff;border:1px solid #E6E9EF;border-left:3px solid #E31920;border-radius:12px;padding:15px 17px;cursor:pointer;transition:all .18s;animation:rise .5s cubic-bezier(.2,0,0,1) both;animation-delay:460ms" style-hover="box-shadow:0 18px 36px -16px rgba(27,48,104,.26);transform:translateY(-4px)"><div style="font:600 9.5px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#1B3068;margin-bottom:6px">Resultado 03</div><div style="font:600 16px/1.2 'Schibsted Grotesk',sans-serif;color:#10182B;letter-spacing:-.01em">Decisiones de inversión de-riskeadas</div><div style="position:absolute;bottom:14px;right:15px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1B3068" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+            <div data-open="o4" onClick="{{ openItem }}" style="position:relative;background:#fff;border:1px solid #E6E9EF;border-left:3px solid #E31920;border-radius:12px;padding:15px 17px;cursor:pointer;transition:all .18s;animation:rise .5s cubic-bezier(.2,0,0,1) both;animation-delay:540ms" style-hover="box-shadow:0 18px 36px -16px rgba(27,48,104,.26);transform:translateY(-4px)"><div style="font:600 9.5px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#1B3068;margin-bottom:6px">Resultado 04</div><div style="font:600 16px/1.2 'Schibsted Grotesk',sans-serif;color:#10182B;letter-spacing:-.01em">Adopción de tecnología bajo control</div><div style="position:absolute;bottom:14px;right:15px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1B3068" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+            <div data-open="o5" onClick="{{ openItem }}" style="position:relative;background:#fff;border:1px solid #E6E9EF;border-left:3px solid #E31920;border-radius:12px;padding:15px 17px;cursor:pointer;transition:all .18s;animation:rise .5s cubic-bezier(.2,0,0,1) both;animation-delay:620ms" style-hover="box-shadow:0 18px 36px -16px rgba(27,48,104,.26);transform:translateY(-4px)"><div style="font:600 9.5px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#1B3068;margin-bottom:6px">Resultado 05</div><div style="font:600 16px/1.2 'Schibsted Grotesk',sans-serif;color:#10182B;letter-spacing:-.01em">Alineación organizacional</div><div style="position:absolute;bottom:14px;right:15px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1B3068" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+            <div data-open="o6" onClick="{{ openItem }}" style="position:relative;background:#fff;border:1px solid #E6E9EF;border-left:3px solid #E31920;border-radius:12px;padding:15px 17px;cursor:pointer;transition:all .18s;animation:rise .5s cubic-bezier(.2,0,0,1) both;animation-delay:700ms" style-hover="box-shadow:0 18px 36px -16px rgba(27,48,104,.26);transform:translateY(-4px)"><div style="font:600 9.5px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#1B3068;margin-bottom:6px">Resultado 06</div><div style="font:600 16px/1.2 'Schibsted Grotesk',sans-serif;color:#10182B;letter-spacing:-.01em">Capacidad de innovación instalada</div><div style="position:absolute;bottom:14px;right:15px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1B3068" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+          </div>
+          <p style="margin:14px 0 0;font:500 13px/1.5 'IBM Plex Sans',sans-serif;color:#475569;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:780ms">De una inquietud exploratoria a una organización lista para <span style="color:#10182B;font-weight:600">decidir, invertir y evolucionar con criterio</span>.</p>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ s9 }}" hint-placeholder-val="{{ false }}">
+      <section data-screen-label="09" style="position:absolute;left:0;right:0;top:100px;bottom:78px;padding:0 84px;display:flex;gap:48px;align-items:center">
+        <div style="flex:0 0 470px">
+          <div style="font:600 12px/1 'IBM Plex Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:#1B3068;display:inline-flex;align-items:center;gap:9px;animation:fadeUp .55s cubic-bezier(.2,0,0,1) both;animation-delay:60ms"><span style="width:7px;height:7px;background:#E31920;border-radius:1px"></span>09 · La inversión</div>
+          <h1 style="margin:16px 0 0;font:700 32px/1.12 'Schibsted Grotesk',sans-serif;letter-spacing:-.02em;color:#10182B;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:140ms">Una inversión anclada en el valor de la decisión</h1>
+          <p style="margin:18px 0 0;font:400 14.5px/1.6 'IBM Plex Sans',sans-serif;color:#475569;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:240ms">Un esquema de fee único e integral que cubre el engagement completo —desde el Executive Alignment hasta el Board Readout— con todos sus entregables. La inversión se ancla en el valor de la decisión estratégica que habilita, no en el costo de los insumos.</p>
+          <div style="margin-top:24px;display:flex;gap:10px;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:360ms">
+            <div data-open="s8-incl" onClick="{{ openItem }}" style="font:600 12px/1 'IBM Plex Sans',sans-serif;color:#10182B;border:1px solid #E6E9EF;border-radius:9px;padding:10px 13px;cursor:pointer;transition:all .18s" style-hover="border-color:#C4D5EE;background:#F7F9FC">Qué incluye</div>
+            <div data-open="s8-pago" onClick="{{ openItem }}" style="font:600 12px/1 'IBM Plex Sans',sans-serif;color:#10182B;border:1px solid #E6E9EF;border-radius:9px;padding:10px 13px;cursor:pointer;transition:all .18s" style-hover="border-color:#C4D5EE;background:#F7F9FC">Esquema de pago</div>
+            <div data-open="s8-fee" onClick="{{ openItem }}" style="font:600 12px/1 'IBM Plex Sans',sans-serif;color:#10182B;border:1px solid #E6E9EF;border-radius:9px;padding:10px 13px;cursor:pointer;transition:all .18s" style-hover="border-color:#C4D5EE;background:#F7F9FC">Por qué un fee único</div>
+          </div>
+        </div>
+        <div style="flex:1">
+          <div style="position:relative;border-radius:22px;overflow:hidden;padding:40px 38px;color:#fff;background:linear-gradient(160deg,rgba(27,48,104,.94),rgba(13,29,71,.97)),url('assets/img/a8.jpg') center/cover;box-shadow:0 40px 90px -30px rgba(27,48,104,.5);animation:rise .7s cubic-bezier(.2,0,0,1) both;animation-delay:300ms">
+            <div style="font:500 11px/1 'IBM Plex Mono',monospace;letter-spacing:.18em;text-transform:uppercase;opacity:.72">Inversión total del engagement</div>
+            <div style="margin-top:14px;display:flex;align-items:baseline;gap:12px"><div style="font:800 58px/1 'Schibsted Grotesk',sans-serif;letter-spacing:-.02em">{{ figStr }}</div><div style="font:600 22px/1 'Schibsted Grotesk',sans-serif;opacity:.85">MXN</div></div>
+            <div style="margin-top:8px;font:400 13px/1 'IBM Plex Sans',sans-serif;opacity:.72">más IVA</div>
+            <div style="margin-top:26px;padding-top:22px;border-top:1px solid rgba(255,255,255,.2);display:flex;flex-direction:column;gap:12px">
+              <div style="display:flex;align-items:center;gap:12px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#67E8C0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span style="font:400 14px/1.4 'IBM Plex Sans',sans-serif;opacity:.92">Alcance completo (6 componentes)</span></div>
+              <div style="display:flex;align-items:center;gap:12px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#67E8C0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span style="font:400 14px/1.4 'IBM Plex Sans',sans-serif;opacity:.92">Equipo consultivo asignado</span></div>
+              <div style="display:flex;align-items:center;gap:12px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#67E8C0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span style="font:400 14px/1.4 'IBM Plex Sans',sans-serif;opacity:.92">Los 7 touchpoints con los tres niveles de la organización</span></div>
+              <div style="display:flex;align-items:center;gap:12px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#67E8C0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span style="font:400 14px/1.4 'IBM Plex Sans',sans-serif;opacity:.92">Cuerpo completo de entregables con calidad de comité directivo</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ s10 }}" hint-placeholder-val="{{ false }}">
+      <section data-screen-label="10" style="position:absolute;left:0;right:0;top:100px;bottom:78px;overflow:hidden">
+        <div style="position:absolute;right:0;top:0;bottom:0;width:420px;background:url('assets/img/b3.jpg') center/cover;filter:grayscale(.32) contrast(1.03) brightness(.98);-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.12) 26%,#000 64%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.12) 26%,#000 64%)"></div>
+        <div style="position:absolute;right:0;top:0;bottom:0;width:420px;background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.55) 24%,rgba(255,255,255,0) 60%),linear-gradient(150deg,rgba(27,48,104,.16),rgba(27,48,104,0) 60%)"></div>
+        <div style="position:absolute;left:84px;right:380px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center">
+          <div style="font:600 12px/1 'IBM Plex Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:#1B3068;display:inline-flex;align-items:center;gap:9px;animation:fadeUp .55s cubic-bezier(.2,0,0,1) both;animation-delay:60ms"><span style="width:7px;height:7px;background:#E31920;border-radius:1px"></span>10 · El diferenciador</div>
+          <h2 style="margin:14px 0 0;font:600 20px/1.3 'Schibsted Grotesk',sans-serif;color:#94A3B8;letter-spacing:-.01em;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:150ms">La consultora tradicional recomienda y se retira.</h2>
+          <div style="margin:8px 0 0;font:700 40px/1.1 'Schibsted Grotesk',sans-serif;letter-spacing:-.025em;color:#10182B;animation:fadeUp .7s cubic-bezier(.2,0,0,1) both;animation-delay:280ms">Nosotros recomendamos <span style="color:#E31920">lo que podemos ejecutar</span>.</div>
+          <p style="margin:22px 0 0;font:400 15px/1.6 'IBM Plex Sans',sans-serif;color:#475569;max-width:600px;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:400ms">30 años de tecnología empresarial respaldan cada recomendación. Cuando la organización decide avanzar, ese mismo socio puede llevarla del plano estratégico al delivery real.</p>
+          <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:9px;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:520ms">
+            <span style="font:500 12px/1 'IBM Plex Sans',sans-serif;color:#334155;background:#F1F5F9;border-radius:8px;padding:9px 14px">30 años (1996–2026)</span>
+            <span style="font:500 12px/1 'IBM Plex Sans',sans-serif;color:#334155;background:#F1F5F9;border-radius:8px;padding:9px 14px">CMMI DEV/SVC ML5 · ISO 9001 / 27001 / 29119</span>
+          </div>
+          <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:620ms">
+            <div data-open="s9-diff" onClick="{{ openItem }}" style="display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border:1px solid #E6E9EF;border-radius:10px;cursor:pointer;transition:all .18s" style-hover="border-color:#C4D5EE;background:#F7F9FC"><span style="font:600 12.5px/1 'IBM Plex Sans',sans-serif;color:#10182B">Estrategia + ejecución</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1B3068" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            <div data-open="s9-next" onClick="{{ openItem }}" style="display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border:1px solid #E6E9EF;border-radius:10px;cursor:pointer;transition:all .18s" style-hover="border-color:#C4D5EE;background:#F7F9FC"><span style="font:600 12.5px/1 'IBM Plex Sans',sans-serif;color:#10182B">El paso siguiente: implementación</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1B3068" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            <div data-open="s9-cred" onClick="{{ openItem }}" style="display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border:1px solid #E6E9EF;border-radius:10px;cursor:pointer;transition:all .18s" style-hover="border-color:#C4D5EE;background:#F7F9FC"><span style="font:600 12.5px/1 'IBM Plex Sans',sans-serif;color:#10182B">Respaldo y certificaciones</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1B3068" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          </div>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ s11 }}" hint-placeholder-val="{{ false }}">
+      <section data-screen-label="11" style="position:absolute;left:0;right:0;top:100px;bottom:78px;overflow:hidden">
+        <div style="position:absolute;right:0;top:0;bottom:0;width:430px;background:url('assets/img/b9.jpg') center/cover;filter:grayscale(.32) contrast(1.03) brightness(.98);-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.12) 26%,#000 64%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.12) 26%,#000 64%)"></div>
+        <div style="position:absolute;right:0;top:0;bottom:0;width:430px;background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.5) 22%,rgba(255,255,255,0) 58%),linear-gradient(150deg,rgba(27,48,104,.14),rgba(27,48,104,0) 60%)"></div>
+        <div style="position:absolute;left:84px;right:400px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center">
+          <div style="font:600 12px/1 'IBM Plex Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:#1B3068;display:inline-flex;align-items:center;gap:9px;animation:fadeUp .55s cubic-bezier(.2,0,0,1) both;animation-delay:60ms"><span style="width:7px;height:7px;background:#E31920;border-radius:1px"></span>11 · Próximos pasos</div>
+          <h1 style="margin:14px 0 0;font:700 38px/1.1 'Schibsted Grotesk',sans-serif;letter-spacing:-.02em;color:#10182B;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:140ms">Próximos pasos</h1>
+          <p style="margin:14px 0 0;font:500 18px/1.5 'Schibsted Grotesk',sans-serif;color:#334155;letter-spacing:-.01em;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:240ms">Convertir la visión de <strong style="color:#10182B;font-weight:700">Tiendas Garcés</strong> en una agenda de innovación estratégica empieza con una conversación.</p>
+          <div style="margin-top:32px;display:flex;flex-direction:column;gap:16px">
+            <div style="display:flex;gap:16px;align-items:flex-start;animation:rise .6s cubic-bezier(.2,0,0,1) both;animation-delay:360ms"><div style="flex:0 0 38px;height:38px;border-radius:10px;background:#EEF3FB;color:#1B3068;font:700 17px/1 'Schibsted Grotesk';display:flex;align-items:center;justify-content:center">1</div><div><div style="font:600 16px/1.25 'Schibsted Grotesk',sans-serif;color:#10182B">Sesión de encuadre</div><div style="margin-top:3px;font:400 13px/1.5 'IBM Plex Sans',sans-serif;color:#64748B">Alinear objetivos, perímetro y expectativas.</div></div></div>
+            <div style="display:flex;gap:16px;align-items:flex-start;animation:rise .6s cubic-bezier(.2,0,0,1) both;animation-delay:460ms"><div style="flex:0 0 38px;height:38px;border-radius:10px;background:#EEF3FB;color:#1B3068;font:700 17px/1 'Schibsted Grotesk';display:flex;align-items:center;justify-content:center">2</div><div><div style="font:600 16px/1.25 'Schibsted Grotesk',sans-serif;color:#10182B">Confirmación del engagement</div><div style="margin-top:3px;font:400 13px/1.5 'IBM Plex Sans',sans-serif;color:#64748B">Firma y arranque del Executive Alignment.</div></div></div>
+            <div style="display:flex;gap:16px;align-items:flex-start;animation:rise .6s cubic-bezier(.2,0,0,1) both;animation-delay:560ms"><div style="flex:0 0 38px;height:38px;border-radius:10px;background:#FDECEE;color:#E31920;font:700 17px/1 'Schibsted Grotesk';display:flex;align-items:center;justify-content:center">3</div><div><div style="font:600 16px/1.25 'Schibsted Grotesk',sans-serif;color:#10182B">4 a 6 semanas después</div><div style="margin-top:3px;font:400 13px/1.5 'IBM Plex Sans',sans-serif;color:#64748B">La dirección presenta su agenda ante el consejo.</div></div></div>
+          </div>
+          <div style="margin-top:30px;display:flex;align-items:center;gap:16px;animation:fadeUp .6s cubic-bezier(.2,0,0,1) both;animation-delay:680ms">
+            <div style="font:700 22px/1.1 'Schibsted Grotesk',sans-serif;color:#10182B">Estamos listos para comenzar.</div>
+            <div data-open="s10-arr" onClick="{{ openItem }}" style="display:inline-flex;align-items:center;gap:8px;padding:12px 18px;background:#E31920;border-radius:10px;cursor:pointer;transition:all .18s" style-hover="background:#C00E14"><span style="font:600 13px/1 'IBM Plex Sans',sans-serif;color:#fff">Qué necesitamos para arrancar</span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          </div>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ detailOpen }}" hint-placeholder-val="{{ false }}">
+      <div onClick="{{ back }}" style="position:absolute;inset:0;z-index:20;background:rgba(13,29,71,.42);backdrop-filter:blur(3px);animation:fadeIn .25s ease both"></div>
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:max-content;max-width:600px;max-height:calc(100% - 96px);z-index:21;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 50px 110px -30px rgba(6,16,31,.72),0 0 0 1px rgba(27,48,104,.08);animation:detailIn .3s ease both;display:flex;flex-direction:column">
+        <div style="flex:0 0 auto;height:4px;background:linear-gradient(90deg,#E31920 0%,#E31920 38%,#1B3068 38%,#1B3068 100%)"></div>
+        <div style="padding:24px 32px 28px;overflow-y:auto;display:flex;flex-direction:column">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:20px">
+            <button onClick="{{ back }}" style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid #E6E9EF;color:#10182B;border-radius:9px;padding:9px 15px;cursor:pointer;font:600 12.5px/1 'IBM Plex Sans',sans-serif;transition:all .16s" style-hover="background:#F7F9FC;border-color:#C4D5EE"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1B3068" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>Volver a {{ crumbSection }}</button>
+            <sc-if value="{{ hasSiblings }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;align-items:center;gap:14px">
+                <span style="font:600 11px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#94A3B8">{{ detailPos }}</span>
+                <div style="display:flex;gap:8px">
+                  <button onClick="{{ detailPrev }}" style="width:32px;height:32px;border-radius:50%;border:1px solid #E6E9EF;background:#fff;color:#1B3068;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .16s" style-hover="background:#F7F9FC"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1B3068" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+                  <button onClick="{{ detailNext }}" style="width:32px;height:32px;border-radius:50%;border:1px solid #E6E9EF;background:#fff;color:#1B3068;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .16s" style-hover="background:#F7F9FC"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1B3068" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+          <div style="margin-top:18px">
+            <div>
+              <div style="font:600 11px/1 'IBM Plex Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:#1B3068">{{ crumbSection }}</div>
+              <h2 style="margin:10px 0 0;font:700 24px/1.16 'Schibsted Grotesk',sans-serif;letter-spacing:-.02em;color:#10182B">{{ popTitle }}</h2>
+              <div style="width:48px;height:3px;margin-top:14px;background:#E31920"></div>
+            </div>
+            <div style="margin-top:16px">
+              <sc-if value="{{ hasKicker }}" hint-placeholder-val="{{ false }}"><p style="margin:0 0 18px;font:500 15px/1.5 'IBM Plex Sans',sans-serif;font-style:italic;color:#1B3068;padding-left:14px;border-left:2.5px solid #E31920">{{ popKicker }}</p></sc-if>
+              <sc-for list="{{ popParas }}" as="p" hint-placeholder-count="1"><p style="margin:0 0 14px;font:400 15.5px/1.65 'IBM Plex Sans',sans-serif;color:#334155"><sc-if value="{{ p.lead }}" hint-placeholder-val="{{ false }}"><strong style="color:#10182B;font-weight:600">{{ p.lead }} </strong></sc-if>{{ p.text }}</p></sc-for>
+              <ul style="list-style:none;margin:0 0 14px;padding:0;display:flex;flex-direction:column;gap:11px"><sc-for list="{{ popBullets }}" as="b" hint-placeholder-count="1"><li style="position:relative;padding-left:20px;font:400 15px/1.55 'IBM Plex Sans',sans-serif;color:#334155"><span style="position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:2px;background:#1B3068"></span><sc-if value="{{ b.lead }}" hint-placeholder-val="{{ false }}"><strong style="color:#10182B;font-weight:600">{{ b.lead }} </strong></sc-if>{{ b.text }}</li></sc-for></ul>
+              <sc-if value="{{ hasAfter }}" hint-placeholder-val="{{ false }}"><p style="margin:0 0 14px;font:400 15.5px/1.65 'IBM Plex Sans',sans-serif;color:#334155">{{ popAfter }}</p></sc-if>
+              <sc-for list="{{ popMeta }}" as="m" hint-placeholder-count="1"><div style="margin-top:16px;padding-top:16px;border-top:1px solid #EEF2F7"><div style="font:600 10.5px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#1B3068;margin-bottom:8px">{{ m.label }}</div><div style="font:500 13.5px/1.55 'IBM Plex Sans',sans-serif;color:#475569">{{ m.value }}</div></div></sc-for>
+              <sc-if value="{{ hasNote }}" hint-placeholder-val="{{ false }}"><p style="margin:14px 0 0;font:400 13px/1.5 'IBM Plex Sans',sans-serif;font-style:italic;color:#94A3B8">{{ popNote }}</p></sc-if>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <div style="position:absolute;bottom:0;left:0;right:0;height:72px;z-index:16;background:#0D1D47">
+      <div style="position:absolute;left:84px;right:84px;top:0;height:1px;background:rgba(255,255,255,.12)"></div>
+      <div style="position:absolute;left:84px;top:0;bottom:0;display:flex;align-items:center;font:500 10px/1 'IBM Plex Mono',monospace;letter-spacing:.12em;color:rgba(255,255,255,.55)">OMNISYS · INNOVATION STRATEGY FRAMEWORK</div>
+      <div style="position:absolute;left:50%;top:0;bottom:0;transform:translateX(-50%);display:flex;align-items:center;gap:16px">
+        <button onClick="{{ prev }}" style="width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .16s" style-hover="background:rgba(255,255,255,.18)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DCE3EF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <div style="display:flex;align-items:center;gap:7px"><sc-for list="{{ dots }}" as="dot" hint-placeholder-count="11"><button data-idx="{{ dot.idx }}" onClick="{{ goDot }}" style="{{ dot.style }}"></button></sc-for></div>
+        <button onClick="{{ next }}" style="width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .16s" style-hover="background:rgba(255,255,255,.18)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DCE3EF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
+      <div style="position:absolute;right:84px;top:0;bottom:0;display:flex;align-items:center;font:600 12px/1 'IBM Plex Mono',monospace;color:#fff;letter-spacing:.06em">{{ num }}<span style="color:rgba(255,255,255,.45)">&nbsp;/ {{ total }}</span></div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { slide: 0, open: null, scale: 1, fig: 0 };
+  TOTAL = 11;
+  SECTIONS = ['Portada','El contexto','El enfoque','El resultado','La metodología','El modelo','El calendario','Lo que gana la dirección','La inversión','El diferenciador','Próximos pasos'];
+  GROUPS = [[],['s2a','s2b','s2c'],['s3a','s3b','s3c'],['s4-1','s4-2','s4-3','s4-4','s4-5','s4-6','s4-7'],['s5-1','s5-2','s5-3','s5-4','s5-5'],['s6-dir','s6-ger','s6-op','s6-7tp'],['s7-dur','s7-steer'],['o1','o2','o3','o4','o5','o6'],['s8-incl','s8-pago','s8-fee'],['s9-diff','s9-next','s9-cred'],['s10-arr']];
+
+  POPUPS = {
+    s2a: { title: 'Costo operativo creciente', paras: [{ text: 'La estructura de costos que sostuvo la operación enfrenta una presión sostenida y estructural, no coyuntural. El margen ya no se protege solo optimizando lo de siempre; requiere repensar cómo opera el negocio. Innovar el modelo operativo es la palanca para proteger rentabilidad sin comprometer el servicio.' }] },
+    s2b: { title: 'Nuevas formas de competir', paras: [{ text: 'El terreno competitivo se redefine: canales digitales, expectativas de servicio más altas, jugadores que operan con modelos más ágiles. La ventaja de mañana no se construye reaccionando, sino decidiendo hoy dónde innovar con intención estratégica.' }] },
+    s2c: { title: 'Tecnología que avanza más rápido que la certeza', paras: [{ text: 'IA, automatización y robótica abren posibilidades reales — pero también el riesgo de invertir en la dirección equivocada, antes de tiempo, o sin control de la información. El reto no es adoptar tecnología: es decidir con criterio dónde, cómo y cuándo hace sentido.' }] },
+    s3a: { title: '¿Qué es innovación estratégica?', paras: [{ text: 'No es adoptar tecnología nueva. Es la innovación dirigida desde la estrategia del negocio: deliberada, con criterio directivo, orientada a donde genera diferencia competitiva real. Se distingue de la innovación por moda (adoptar lo que está de tendencia) y de los experimentos sueltos (pilotos aislados sin agenda). Es el eje del que se desprende todo el servicio.' }] },
+    s3b: { title: 'Eficiencia vs. Ventaja competitiva', paras: [{ text: 'Toda oportunidad de innovación cae en una de dos categorías, y el servicio las distingue desde el origen:' }], bullets: [{ lead: 'Palancas de eficiencia:', text: 'optimizan lo que ya existe para proteger el margen actual. Retorno más cercano, riesgo menor.' }, { lead: 'Palancas de ventaja competitiva:', text: 'crean nuevas formas de operar y competir que construyen la posición futura. Retorno mayor, apuesta más estructural.' }], after: 'El valor está en balancear ambas: proteger hoy mientras se construye mañana.' },
+    s3c: { title: 'Independencia de criterio', paras: [{ text: 'La tecnología (IA, automatización, robótica) se evalúa como uno de los caminos posibles, nunca como la respuesta dada de antemano. El servicio recomienda la vía óptima con total independencia —incluso si esa vía no es tecnológica, o si la recomendación es "aquí todavía no conviene invertir"—. Esa objetividad es la garantía para el cliente.' }] },
+    's4-1': { title: 'Strategic Diagnosis', paras: [{ text: 'La lectura del valor en juego (value-at-stake) de la operación: dónde se concentra el mayor valor, con la causa raíz de cada oportunidad clasificada —proceso, datos, talento o tecnología— y traducida a impacto sobre los KPIs del negocio. Responde: ¿dónde está realmente el valor?' }] },
+    's4-2': { title: 'Innovation Opportunity Map', paras: [{ text: 'El universo completo de oportunidades de innovación, segmentado entre palancas de eficiencia y de ventaja competitiva, con el pathway estratégico recomendado para cada una. Responde: ¿qué oportunidades existen y por qué vía capturarlas?' }] },
+    's4-3': { title: 'Prioritized Innovation Agenda', paras: [{ text: 'La cartera priorizada y secuenciada por horizontes —quick wins, iniciativas estructurales, apuestas de futuro—, con los business cases preliminares que sustentan cada apuesta. Responde: ¿qué hacer primero y con qué sustento económico?' }] },
+    's4-4': { title: 'Governance & Secure Adoption Model', paras: [{ text: 'El framework para innovar bajo control: clasificación de información, trazabilidad, control de acceso y gestión de riesgo. Responde de frente a la mayor inquietud de adopción: ¿cómo evolucionar sin perder control de la información?' }] },
+    's4-5': { title: 'Strategic Activation Plan', paras: [{ text: 'La ruta accionable a 90 días y a 6–12 meses, con pilotos recomendados, requerimientos, riesgos y dependencias. Responde: ¿qué debe hacer la organización a continuación?' }] },
+    's4-6': { title: 'Board Readout Deck', paras: [{ text: 'La presentación ejecutiva con la que la agenda se lleva al comité, diseñada para habilitar la decisión directiva en la misma sesión.' }] },
+    's4-7': { title: 'Executive Summary', paras: [{ text: 'La síntesis de una página: la recomendación, el valor en juego y los próximos pasos, para lectura de dirección general.' }] },
+    's5-1': { title: 'Executive Alignment', kicker: 'Pregunta que resuelve: ¿sobre qué objetivos, métricas y criterios de decisión se construye el ejercicio?', paras: [{ lead: 'Qué ocurre:', text: 'sesión estructurada de encuadre con la primera línea ejecutiva y mapeo de stakeholders. Se define la pregunta rectora, se establece la línea base de KPIs, se acota el perímetro de procesos y se acuerdan los criterios de éxito. Consolida un mandato común entre áreas con agendas divergentes.' }], meta: [{ label: 'Salidas', value: 'Engagement charter · KPI baseline · Stakeholder map · Work plan.' }] },
+    's5-2': { title: 'Strategic Operating Assessment', kicker: 'Pregunta que resuelve: ¿dónde se concentra el value-at-stake dentro de la operación?', paras: [{ lead: 'Qué ocurre:', text: 'diagnóstico basado en entrevistas ejecutivas, mapeo de procesos core y análisis de causa raíz que aísla si cada oportunidad es de proceso, datos, talento o tecnología. Cada hallazgo se traduce a impacto sobre los indicadores del negocio.' }], meta: [{ label: 'Salidas', value: 'Process maps · Pain-point inventory · Value-at-stake heatmap · Assessment findings report.' }] },
+    's5-3': { title: 'Opportunity Mapping & Pathway Definition', kicker: 'Pregunta que resuelve: ¿cuál es el universo de oportunidades y la vía óptima para capturar cada una?', paras: [{ lead: 'Qué ocurre:', text: 'construcción del mapa de oportunidades bajo lógica MECE (segmentado en eficiencia vs. ventaja competitiva) y definición del pathway estratégico de cada una mediante evaluación multicriterio —impacto, factibilidad, datos, riesgo, retorno— con criterio technology-agnostic.' }], meta: [{ label: 'Salidas', value: 'Innovation opportunity map · Multicriteria evaluation matrix · Strategic & Innovation Pathway por oportunidad.' }] },
+    's5-4': { title: 'Prioritization & Business Case', kicker: 'Pregunta que resuelve: ¿en qué secuencia debe invertir la organización y con qué sustento económico?', paras: [{ lead: 'Qué ocurre:', text: 'priorización por horizontes sobre matriz de impacto vs. factibilidad, con business case preliminar por iniciativa prioritaria. En paralelo se diseña el framework de gobierno y adopción segura.' }], meta: [{ label: 'Salidas', value: 'Prioritized Innovation Agenda · Impact vs. feasibility matrix · Preliminary business cases · Governance & Secure Adoption framework.' }] },
+    's5-5': { title: 'Strategic Activation & Board Readout', kicker: 'Pregunta que resuelve: ¿qué debe hacer la organización a continuación, y bajo qué condiciones?', paras: [{ lead: 'Qué ocurre:', text: 'consolidación del plan de activación —próximos pasos, pilotos, requerimientos, riesgos y dependencias— y presentación ejecutiva ante el comité con estándar de board readout.' }], meta: [{ label: 'Salidas', value: 'Strategic Activation Plan · Board readout deck · Executive summary.' }] },
+    's6-dir': { title: 'Nivel Directivo', kicker: 'Dominio: visión, estrategia y criterios de decisión.', paras: [{ text: 'Definen la pregunta rectora, los objetivos de negocio, los KPIs que gobiernan y el apetito de riesgo e inversión. Son la fuente del para qué y los dueños de la decisión final. No conocen —ni deben— el detalle operativo; aportan dirección y validan la agenda ante el consejo.' }], meta: [{ label: 'Touchpoints', value: 'Executive Kickoff · Executive Interviews · Steering Checkpoint · Board Readout.' }] },
+    's6-ger': { title: 'Nivel Gerencial', kicker: 'Dominio: procesos, ejecución y cuellos de botella.', paras: [{ text: 'El puente entre estrategia y operación. Conocen cómo funciona realmente cada proceso, dónde están las ineficiencias estructurales, qué se ha intentado antes y qué restricciones existen. Fuente primaria para dimensionar oportunidades y validar factibilidad.' }], meta: [{ label: 'Touchpoints', value: 'Management Deep-Dives · Prioritization Workshop.' }] },
+    's6-op': { title: 'Nivel Operativo', kicker: 'Dominio: conocimiento granular del día a día.', paras: [{ text: 'Poseen el detalle fino de dónde se genera merma, retrabajo, tiempos muertos o fricción — el conocimiento que no aparece en ningún reporte. Fuente de verdad sobre la operación real; validan que cada oportunidad sea genuina y no teórica.' }], meta: [{ label: 'Touchpoints', value: 'Operational Working Sessions.' }] },
+    's6-7tp': { title: 'Los 7 touchpoints del engagement', paras: [{ text: 'Executive Kickoff · Executive Interviews · Management Deep-Dives · Operational Working Sessions · Steering Checkpoint · Prioritization Workshop · Board Readout. Cada uno calibrado para extraer de cada nivel exactamente lo que solo ese nivel sabe, respetando el tiempo de cada participante.' }] },
+    o1: { title: 'Claridad estratégica', paras: [{ text: 'Al cierre, la dirección distingue con evidencia la oportunidad genuina de la moda tecnológica. Sabe dónde se concentra el valor en juego de su operación y cuál es la causa raíz de cada dolor —proceso, datos, talento o tecnología—. Reemplaza la intuición por criterio fundamentado.' }] },
+    o2: { title: 'Una agenda priorizada y defendible', paras: [{ text: 'La organización deja de tener una lista de ideas sueltas y pasa a tener una cartera ordenada por horizontes, con business cases preliminares que sustentan cada apuesta. Es la munición con la que la dirección justifica y defiende sus decisiones ante el consejo.' }] },
+    o3: { title: 'Decisiones de inversión de-riskeadas', paras: [{ text: 'El mayor ahorro no siempre es el que se captura, sino el que se evita. El engagement previene invertir en la solución equivocada o antes de tiempo: cada iniciativa se activa solo cuando el análisis valida que es la apuesta correcta y que la organización está lista para capturarla.' }] },
+    o4: { title: 'Adopción de tecnología bajo control', paras: [{ text: 'La organización obtiene un marco de gobierno que responde de frente a la mayor inquietud de adopción: cómo innovar sin perder control de la información. Clasificación de datos, trazabilidad, control de acceso y gestión de riesgo — la confianza que destraba la adopción.' }] },
+    o5: { title: 'Alineación organizacional', paras: [{ text: 'El engagement deja a dirección, gerencia y operación operando bajo un mismo marco de decisión, con criterios objetivos. Convierte agendas divergentes entre áreas en una agenda común — un activo que trasciende el propio ejercicio.' }] },
+    o6: { title: 'Capacidad de innovación instalada', paras: [{ text: 'El valor no termina con la entrega. La organización queda con las bases metodológicas para seguir identificando, evaluando y priorizando oportunidades de innovación de forma estructurada — una capacidad propia y sostenida, no una dependencia externa.' }] },
+    's8-incl': { title: 'Qué incluye la inversión', paras: [{ text: 'El fee integral cubre la totalidad del engagement sin costos ocultos ni variables:' }], bullets: [{ text: 'La conducción de las cinco fases metodológicas completas.' }, { text: 'El equipo consultivo senior asignado durante todo el engagement.' }, { text: 'Los siete touchpoints con los niveles directivo, gerencial y operativo.' }, { text: 'El Executive Innovation Blueprint con sus cinco cuerpos.' }, { text: 'Los activos de cierre: Board Readout Deck y Executive Summary.' }, { text: 'La presentación ejecutiva final ante el comité.' }] },
+    's8-pago': { title: 'Esquema de pago', paras: [{ text: 'La inversión se estructura en dos hitos de facturación:' }], bullets: [{ lead: '50% de anticipo', text: 'a la firma / inicio del engagement (Executive Alignment).' }, { lead: '50% contra entrega', text: 'del Board Readout y el Executive Innovation Blueprint.' }], note: '(Esquema ajustable según preferencia del cliente.)' },
+    's8-fee': { title: 'Por qué un fee único', paras: [{ text: 'Un precio cerrado ancla la conversación en el valor del resultado, no en el costo del insumo. Es la lógica de una firma de alto nivel: la inversión refleja la calidad de la decisión estratégica que la dirección podrá tomar y defender — no las horas invertidas en producirla.' }] },
+    's9-diff': { title: 'El diferenciador: estrategia + ejecución', paras: [{ text: 'Una firma tradicional entrega un documento y se retira; la ejecución queda como problema del cliente. OmniSys combina el nivel de consultoría estratégica premium con algo que la firma tradicional no tiene: la capacidad real de ejecutar lo que recomienda — prototipado, desarrollo, integración y delivery bajo un mismo equipo. La estrategia no se queda en PowerPoint.' }] },
+    's9-next': { title: 'El paso siguiente: implementación', paras: [{ text: 'Al cierre del engagement, la organización tiene una agenda priorizada y lista para activarse. La implementación de las iniciativas prioritarias —pilotos, desarrollos, automatizaciones o adopción tecnológica— constituye una fase posterior, con su propio alcance, cronograma y modelo. El diagnóstico de este servicio de-riskea esa inversión: se ejecuta solo lo que el análisis validó como la apuesta correcta.' }] },
+    's9-cred': { title: 'Respaldo y certificaciones', paras: [{ text: 'Trayectoria de 30 años en tecnología empresarial (1996–2026). Certificaciones CMMI DEV/SVC Nivel 5 e ISO 9001, 27001 y 29119. Experiencia comprobada en clientes grandes, complejos y de alta criticidad, con capacidad end-to-end: consultoría, arquitectura, datos, IA, automatización, desarrollo e integración.' }] },
+    's10-arr': { title: 'Qué necesitamos para arrancar', paras: [{ text: 'Un sponsor ejecutivo designado, acceso a la primera línea para el Executive Alignment, y la definición conjunta del perímetro de procesos a analizar. El resto lo conduce el equipo. El engagement puede iniciar en cuestión de días desde la confirmación.' }] }
+  };
+
+  componentDidMount() {
+    this._key = (e) => {
+      if (e.key === 'Escape') { if (this.state.open) this.setState({ open: null }); return; }
+      if (this.state.open) {
+        if (e.key === 'ArrowRight') { e.preventDefault(); this.detailStep(1); }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); this.detailStep(-1); }
+        return;
+      }
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); this.go(1); }
+      if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); this.go(-1); }
+    };
+    window.addEventListener('keydown', this._key);
+    this._resize = () => { this.setState({ scale: Math.min(window.innerWidth / 1280, window.innerHeight / 720, 1.6) }); };
+    window.addEventListener('resize', this._resize); this._resize();
+    if (this.state.slide === 8) this.runCount();
+  }
+  componentWillUnmount() { window.removeEventListener('keydown', this._key); window.removeEventListener('resize', this._resize); if (this._raf) cancelAnimationFrame(this._raf); }
+  componentDidUpdate(_, prev) { if (prev.slide !== this.state.slide && this.state.slide === 8) this.runCount(); }
+  TARGET = 2148000;
+  runCount() { const target = this.TARGET, dur = 1200, t0 = performance.now(); if (this._raf) cancelAnimationFrame(this._raf); const step = (now) => { const p = Math.min(1, (now - t0) / dur); const e = 1 - Math.pow(1 - p, 3); this.setState({ fig: Math.round(target * e) }); if (p < 1) this._raf = requestAnimationFrame(step); }; this.setState({ fig: 0 }); this._raf = requestAnimationFrame(step); }
+  go(d) { this.setState(s => ({ slide: Math.max(0, Math.min(this.TOTAL - 1, s.slide + d)), open: null })); }
+  detailStep(d) { const g = this.GROUPS[this.state.slide] || []; const i = g.indexOf(this.state.open); if (i < 0) return; this.setState({ open: g[(i + d + g.length) % g.length] }); }
+
+  renderVals() {
+    const { slide, open, scale, fig } = this.state;
+    const T = this.TOTAL;
+    const S = {}; for (let i = 1; i <= T; i++) S['s' + i] = (slide === i - 1);
+    const dots = [];
+    for (let i = 0; i < T; i++) { const a = i === slide; dots.push({ idx: i, style: a ? 'width:26px;height:6px;border-radius:3px;border:none;padding:0;cursor:pointer;background:#fff;transition:all .3s cubic-bezier(.2,0,0,1)' : 'width:6px;height:6px;border-radius:3px;border:none;padding:0;cursor:pointer;background:rgba(255,255,255,.32);transition:all .3s cubic-bezier(.2,0,0,1)' }); }
+    const P = this.POPUPS[open] || {};
+    const g = this.GROUPS[slide] || []; const gi = g.indexOf(open);
+    return {
+      scale, slide, ...S,
+      num: String(slide + 1).padStart(2, '0'), total: String(T),
+      progressPct: (((slide + 1) / T) * 100).toFixed(2) + '%',
+      dots, figStr: '$' + (slide === 8 && fig > 0 ? fig : (slide === 8 ? this.TARGET : fig)).toLocaleString('en-US'),
+      next: () => this.go(1), prev: () => this.go(-1),
+      goDot: (e) => this.setState({ slide: +e.currentTarget.dataset.idx, open: null }),
+      openItem: (e) => this.setState({ open: e.currentTarget.dataset.open }),
+      back: () => this.setState({ open: null }),
+      detailPrev: () => this.detailStep(-1), detailNext: () => this.detailStep(1),
+      detailOpen: !!open,
+      crumbSection: this.SECTIONS[slide],
+      detailPos: gi >= 0 ? (gi + 1) + ' / ' + g.length : '',
+      hasSiblings: g.length > 1,
+      popTitle: P.title, popKicker: P.kicker, hasKicker: !!P.kicker,
+      popParas: P.paras || [], popBullets: P.bullets || [],
+      popAfter: P.after, hasAfter: !!P.after,
+      popMeta: P.meta || [], popNote: P.note, hasNote: !!P.note
+    };
+  }
+}
+</script>
+</body>
+</html>
