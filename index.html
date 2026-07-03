@@ -49,6 +49,19 @@ button{font-family:inherit}
 .s7tip-o{margin:9px 0 0;font:400 10.5px/1.45 'IBM Plex Sans',sans-serif;color:#8FA0C2}
 .s7tip-o b{color:#C9D3E6;font-weight:600}
 .s7ckpt{cursor:pointer}
+/* --- Hover tooltips for cards that were click-popups (slide 4) --- */
+.tt-pop{position:absolute;z-index:30;width:360px;background:#0D1D47;color:#fff;border-radius:13px;padding:16px 18px;box-shadow:0 30px 62px -22px rgba(6,16,31,.72),0 0 0 1px rgba(255,255,255,.06);opacity:0;transform:translateY(4px);transition:opacity .16s cubic-bezier(.2,0,0,1),transform .16s cubic-bezier(.2,0,0,1);pointer-events:none}
+.tt-pop.on{opacity:1;transform:translateY(0)}
+.tt-pop .tt-title{margin:0;font:700 14px/1.25 'Schibsted Grotesk',sans-serif;letter-spacing:-.01em;color:#fff}
+.tt-pop .tt-rule{width:34px;height:2.5px;background:#E31920;border-radius:2px;margin:9px 0 11px}
+.tt-pop .tt-p{margin:0 0 9px;font:400 12px/1.55 'IBM Plex Sans',sans-serif;color:#C9D3E6}
+.tt-pop .tt-p:last-child{margin-bottom:0}
+.tt-pop .tt-p b{color:#fff;font-weight:600}
+.tt-pop .tt-ul{list-style:none;margin:0 0 9px;padding:0;display:flex;flex-direction:column;gap:7px}
+.tt-pop .tt-ul li{position:relative;padding-left:15px;font:400 12px/1.5 'IBM Plex Sans',sans-serif;color:#C9D3E6}
+.tt-pop .tt-ul li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:1px;background:#E31920}
+.tt-pop .tt-ul li b{color:#fff;font-weight:600}
+[data-tt]{cursor:help}
 /* --- Responsive: fill the safe area; the JS scaler fits the deck to it --- */
 .dc-host{padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
 /* Never let flex shrink the fixed canvas below 1280x720 (that would clip the
@@ -198,11 +211,11 @@ button{font-family:inherit}
             </div>
           </div>
           <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,1fr);gap:12px">
-            <div data-open="s4-1" style="background:#fff;border:1px solid #E6E9EF;border-radius:12px;padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:14px;transition:all .18s;animation:rise .5s cubic-bezier(.2,0,0,1) both;animation-delay:400ms" data-hover="transform:translateY(-3px);box-shadow:0 16px 34px -14px rgba(27,48,104,.24);border-color:#C4D5EE"><span style="flex:0 0 32px;height:32px;border-radius:9px;background:#EEF3FB;color:#1B3068;font:700 15px/1 'Schibsted Grotesk';display:flex;align-items:center;justify-content:center">1</span><span style="font:600 14.5px/1.2 'Schibsted Grotesk',sans-serif;color:#10182B;letter-spacing:-.01em">Strategic Diagnosis</span></div>
-            <div data-open="s4-2" style="background:#fff;border:1px solid #E6E9EF;border-radius:12px;padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:14px;transition:all .18s;animation:rise .5s cubic-bezier(.2,0,0,1) both;animation-delay:470ms" data-hover="transform:translateY(-3px);box-shadow:0 16px 34px -14px rgba(27,48,104,.24);border-color:#C4D5EE"><span style="flex:0 0 32px;height:32px;border-radius:9px;background:#EEF3FB;color:#1B3068;font:700 15px/1 'Schibsted Grotesk';display:flex;align-items:center;justify-content:center">2</span><span style="font:600 14.5px/1.2 'Schibsted Grotesk',sans-serif;color:#10182B;letter-spacing:-.01em">Innovation Opportunity Map</span></div>
-            <div data-open="s4-3" style="background:#fff;border:1px solid #E6E9EF;border-radius:12px;padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:14px;transition:all .18s;animation:rise .5s cubic-bezier(.2,0,0,1) both;animation-delay:540ms" data-hover="transform:translateY(-3px);box-shadow:0 16px 34px -14px rgba(27,48,104,.24);border-color:#C4D5EE"><span style="flex:0 0 32px;height:32px;border-radius:9px;background:#EEF3FB;color:#1B3068;font:700 15px/1 'Schibsted Grotesk';display:flex;align-items:center;justify-content:center">3</span><span style="font:600 14.5px/1.2 'Schibsted Grotesk',sans-serif;color:#10182B;letter-spacing:-.01em">Prioritized Innovation Agenda</span></div>
-            <div data-open="s4-4" style="background:#fff;border:1px solid #E6E9EF;border-radius:12px;padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:14px;transition:all .18s;animation:rise .5s cubic-bezier(.2,0,0,1) both;animation-delay:610ms" data-hover="transform:translateY(-3px);box-shadow:0 16px 34px -14px rgba(27,48,104,.24);border-color:#C4D5EE"><span style="flex:0 0 32px;height:32px;border-radius:9px;background:#EEF3FB;color:#1B3068;font:700 15px/1 'Schibsted Grotesk';display:flex;align-items:center;justify-content:center">4</span><span style="font:600 14.5px/1.2 'Schibsted Grotesk',sans-serif;color:#10182B;letter-spacing:-.01em">Governance &amp; Secure Adoption</span></div>
-            <div data-open="s4-5" style="grid-column:1 / span 2;background:#fff;border:1px solid #E6E9EF;border-radius:12px;padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:14px;transition:all .18s;animation:rise .5s cubic-bezier(.2,0,0,1) both;animation-delay:680ms" data-hover="transform:translateY(-3px);box-shadow:0 16px 34px -14px rgba(27,48,104,.24);border-color:#C4D5EE"><span style="flex:0 0 32px;height:32px;border-radius:9px;background:#EEF3FB;color:#1B3068;font:700 15px/1 'Schibsted Grotesk';display:flex;align-items:center;justify-content:center">5</span><span style="font:600 14.5px/1.2 'Schibsted Grotesk',sans-serif;color:#10182B;letter-spacing:-.01em">Strategic Activation Plan</span></div>
+            <div data-tt="s4-1" tabindex="0" aria-label="Strategic Diagnosis" style="background:#fff;border:1px solid #E6E9EF;border-radius:12px;padding:14px 18px;cursor:help;display:flex;align-items:center;gap:14px;transition:all .18s;animation:rise .5s cubic-bezier(.2,0,0,1) both;animation-delay:400ms" data-hover="transform:translateY(-3px);box-shadow:0 16px 34px -14px rgba(27,48,104,.24);border-color:#C4D5EE"><span style="flex:0 0 32px;height:32px;border-radius:9px;background:#EEF3FB;color:#1B3068;font:700 15px/1 'Schibsted Grotesk';display:flex;align-items:center;justify-content:center">1</span><span style="font:600 14.5px/1.2 'Schibsted Grotesk',sans-serif;color:#10182B;letter-spacing:-.01em">Strategic Diagnosis</span></div>
+            <div data-tt="s4-2" tabindex="0" aria-label="Innovation Opportunity Map" style="background:#fff;border:1px solid #E6E9EF;border-radius:12px;padding:14px 18px;cursor:help;display:flex;align-items:center;gap:14px;transition:all .18s;animation:rise .5s cubic-bezier(.2,0,0,1) both;animation-delay:470ms" data-hover="transform:translateY(-3px);box-shadow:0 16px 34px -14px rgba(27,48,104,.24);border-color:#C4D5EE"><span style="flex:0 0 32px;height:32px;border-radius:9px;background:#EEF3FB;color:#1B3068;font:700 15px/1 'Schibsted Grotesk';display:flex;align-items:center;justify-content:center">2</span><span style="font:600 14.5px/1.2 'Schibsted Grotesk',sans-serif;color:#10182B;letter-spacing:-.01em">Innovation Opportunity Map</span></div>
+            <div data-tt="s4-3" tabindex="0" aria-label="Prioritized Innovation Agenda" style="background:#fff;border:1px solid #E6E9EF;border-radius:12px;padding:14px 18px;cursor:help;display:flex;align-items:center;gap:14px;transition:all .18s;animation:rise .5s cubic-bezier(.2,0,0,1) both;animation-delay:540ms" data-hover="transform:translateY(-3px);box-shadow:0 16px 34px -14px rgba(27,48,104,.24);border-color:#C4D5EE"><span style="flex:0 0 32px;height:32px;border-radius:9px;background:#EEF3FB;color:#1B3068;font:700 15px/1 'Schibsted Grotesk';display:flex;align-items:center;justify-content:center">3</span><span style="font:600 14.5px/1.2 'Schibsted Grotesk',sans-serif;color:#10182B;letter-spacing:-.01em">Prioritized Innovation Agenda</span></div>
+            <div data-tt="s4-4" tabindex="0" aria-label="Governance & Secure Adoption" style="background:#fff;border:1px solid #E6E9EF;border-radius:12px;padding:14px 18px;cursor:help;display:flex;align-items:center;gap:14px;transition:all .18s;animation:rise .5s cubic-bezier(.2,0,0,1) both;animation-delay:610ms" data-hover="transform:translateY(-3px);box-shadow:0 16px 34px -14px rgba(27,48,104,.24);border-color:#C4D5EE"><span style="flex:0 0 32px;height:32px;border-radius:9px;background:#EEF3FB;color:#1B3068;font:700 15px/1 'Schibsted Grotesk';display:flex;align-items:center;justify-content:center">4</span><span style="font:600 14.5px/1.2 'Schibsted Grotesk',sans-serif;color:#10182B;letter-spacing:-.01em">Governance &amp; Secure Adoption</span></div>
+            <div data-tt="s4-5" tabindex="0" aria-label="Strategic Activation Plan" style="grid-column:1 / span 2;background:#fff;border:1px solid #E6E9EF;border-radius:12px;padding:14px 18px;cursor:help;display:flex;align-items:center;gap:14px;transition:all .18s;animation:rise .5s cubic-bezier(.2,0,0,1) both;animation-delay:680ms" data-hover="transform:translateY(-3px);box-shadow:0 16px 34px -14px rgba(27,48,104,.24);border-color:#C4D5EE"><span style="flex:0 0 32px;height:32px;border-radius:9px;background:#EEF3FB;color:#1B3068;font:700 15px/1 'Schibsted Grotesk';display:flex;align-items:center;justify-content:center">5</span><span style="font:600 14.5px/1.2 'Schibsted Grotesk',sans-serif;color:#10182B;letter-spacing:-.01em">Strategic Activation Plan</span></div>
           </div>
         </div>
       </section>
@@ -437,7 +450,7 @@ button{font-family:inherit}
 
 (function(){
 const SECTIONS=['Portada','El contexto','El enfoque','El resultado','La metodología','El modelo','El calendario','Lo que gana la dirección','La inversión','El diferenciador','Próximos pasos'];
-const GROUPS=[[],['s2a','s2b','s2c'],['s3a','s3b','s3c'],['s4-1','s4-2','s4-3','s4-4','s4-5','s4-6','s4-7'],['s5-1','s5-2','s5-3','s5-4','s5-5'],['s6-dir','s6-ger','s6-op','s6-7tp'],['s7-dur','s7-steer'],['o1','o2','o3','o4','o5','o6'],['s8-incl','s8-pago','s8-fee'],['s9-diff','s9-next','s9-cred'],['s10-arr']];
+const GROUPS=[[],['s2a','s2b','s2c'],['s3a','s3b','s3c'],['s4-6','s4-7'],['s5-1','s5-2','s5-3','s5-4','s5-5'],['s6-dir','s6-ger','s6-op','s6-7tp'],['s7-dur','s7-steer'],['o1','o2','o3','o4','o5','o6'],['s8-incl','s8-pago','s8-fee'],['s9-diff','s9-next','s9-cred'],['s10-arr']];
 const TARGET=2148000;
 const POPUPS={
     s2a: { title: 'Costo operativo creciente', paras: [{ text: 'La estructura de costos que sostuvo la operación enfrenta una presión sostenida y estructural, no coyuntural. El margen ya no se protege solo optimizando lo de siempre; requiere repensar cómo opera el negocio. Innovar el modelo operativo es la palanca para proteger rentabilidad sin comprometer el servicio.' }] },
@@ -610,6 +623,7 @@ function setSlide(n, dirHint){
   const dir = !changed ? 0 : (dirHint!=null ? dirHint : (n>state.slide?1:-1));
   if(changed) spawnExitGhost(live[state.slide], dir);
   state.slide=n; state.open=null;
+  hideTT();
   if(changed) mountSection(n, dir);
   updateChrome(); renderPopup();
   if(n===8) runCount();
@@ -662,6 +676,44 @@ stageEl.addEventListener('mouseout',(e)=>{
   if(!el.__hv) return;
   el.__hv=false; el.setAttribute('style', el.__orig||'');
 });
+
+// ---- card tooltips (hover/focus reveal; used by slide 4's numbered cards) ----
+let ttEl=null;
+function ensureTT(){ if(!ttEl){ ttEl=document.createElement('div'); ttEl.className='tt-pop'; stageEl.appendChild(ttEl); } return ttEl; }
+function buildTT(key){
+  const P=POPUPS[key]||{};
+  let h='<div class="tt-title">'+esc(P.title||'')+'</div><div class="tt-rule"></div>';
+  (P.paras||[]).forEach(p=>{ h+='<p class="tt-p">'+(p.lead?'<b>'+esc(p.lead)+' </b>':'')+esc(p.text)+'</p>'; });
+  if((P.bullets||[]).length){ h+='<ul class="tt-ul">'; P.bullets.forEach(b=>{ h+='<li>'+(b.lead?'<b>'+esc(b.lead)+' </b>':'')+esc(b.text)+'</li>'; }); h+='</ul>'; }
+  if(P.after) h+='<p class="tt-p">'+esc(P.after)+'</p>';
+  return h;
+}
+function showTT(card){
+  const key=card.dataset.tt; if(!POPUPS[key]) return;
+  const el=ensureTT();
+  if(el.__k===key && el.classList.contains('on')) return; // already showing this one
+  el.__k=key; el.innerHTML=buildTT(key);
+  // Position in the stage's own (unscaled) coordinate space.
+  const sc=state.scale||1, sr=stageEl.getBoundingClientRect(), cr=card.getBoundingClientRect();
+  const L=(cr.left-sr.left)/sc, R=(cr.right-sr.left)/sc, T=(cr.top-sr.top)/sc, B=(cr.bottom-sr.top)/sc;
+  const cx=(L+R)/2, cy=(T+B)/2, tw=el.offsetWidth, th=el.offsetHeight, g=12;
+  const minX=20, maxX=1260, minY=110, maxY=636;   // stay inside the content band
+  const cX=v=>Math.max(minX,Math.min(v,maxX-tw));
+  const cY=v=>Math.max(minY,Math.min(v,maxY-th));
+  let x,y;
+  if(T-g-th>=minY){ x=cX(cx-tw/2); y=T-g-th; }            // prefer above
+  else if(B+g+th<=maxY){ x=cX(cx-tw/2); y=B+g; }          // else below
+  else if(R+g+tw<=maxX){ x=R+g; y=cY(cy-th/2); }          // else right
+  else if(L-g-tw>=minX){ x=L-g-tw; y=cY(cy-th/2); }       // else left
+  else { x=cX(cx-tw/2); y=cY(cy-th/2); }                  // fallback: overlay
+  el.style.left=Math.round(x)+'px'; el.style.top=Math.round(y)+'px';
+  el.classList.add('on');
+}
+function hideTT(){ if(ttEl){ ttEl.classList.remove('on'); ttEl.__k=null; } }
+stageEl.addEventListener('mouseover',(e)=>{ const c=e.target.closest('[data-tt]'); if(c && stageEl.contains(c)) showTT(c); });
+stageEl.addEventListener('mouseout',(e)=>{ const c=e.target.closest('[data-tt]'); if(!c) return; if(e.relatedTarget && c.contains(e.relatedTarget)) return; hideTT(); });
+stageEl.addEventListener('focusin',(e)=>{ const c=e.target.closest('[data-tt]'); if(c) showTT(c); });
+stageEl.addEventListener('focusout',(e)=>{ const c=e.target.closest('[data-tt]'); if(c) hideTT(); });
 
 // ---- keyboard ----
 window.addEventListener('keydown',(e)=>{
