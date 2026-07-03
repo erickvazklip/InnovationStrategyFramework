@@ -12,7 +12,7 @@ propio en JavaScript vanilla (~230 líneas) — solo carga tipografías desde Go
 ```
 .
 ├── index.html          # La aplicación completa (markup + estilos + runtime)
-├── assets/img/         # Las 9 imágenes usadas por el deck
+├── assets/img/         # Banco de imágenes del proyecto (el deck usa 9; el resto queda disponible)
 ├── design-source/      # Fuente de diseño (referencia, no se sirve)
 │   ├── prototype.dc.html   # Prototipo original de Claude Design (<x-dc>/DCLogic)
 │   ├── support.js          # Runtime del prototipo
